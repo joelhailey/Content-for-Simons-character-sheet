@@ -18,6 +18,8 @@ BackgroundList["artisan"] = {
 	name: "Artisan",
 	source: [["P24", 178]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Int"],
 	skills: ["Investigation", "Persuasion"],
 	toolProfs: [["Artisan's tools", 1]],
 	gold: 32,
@@ -113,6 +115,8 @@ BackgroundList["charlatan"] = {
 	name: "Charlatan",
 	source: [["P24", 179]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Constitution, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Dex", "Con", "Cha"],
 	skills: ["Deception", "Sleight of Hand"],
 	toolProfs: [["Forgery Kit", "Dex"]],
 	gold: 15,
@@ -193,6 +197,8 @@ BackgroundList["entertainer"] = {
 	name: "Entertainer",
 	source: [["P24", 180]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Cha"],
 	skills: ["Acrobatics", "Performance"],
 	toolProfs: [["Musical Instrument", 1]],
 	gold: 11,
@@ -279,6 +285,8 @@ BackgroundList["farmer"] = {
 	name: "Farmer",
 	source: [["P24", 180]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Constitution, and Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Con", "Wis"],
 	skills: ["Animal Handling", "Nature"],
 	toolProfs: [["Carpenter's Tools", "Str"]],
 	gold: 30,
@@ -370,6 +378,8 @@ BackgroundList["guard"] = {
 	name: "Guard",
 	source: [["P24", 181]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Intelligence, and Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Int", "Wis"],
 	toolProfs: [["Gaming Set", 1]],
 	gold: 12,
 	equipleft: [
@@ -401,6 +411,8 @@ BackgroundList["guide"] = {
 	name: "Guide",
 	source: [["P24", 181]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Constitution, and Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: ["Dex", "Con", "Wis"],
 	skills: ["Stealth", "Survival"],
 	toolProfs: [["Cartographer's Tools", "Wis"]],
 	gold: 3,
@@ -493,6 +505,8 @@ BackgroundList["hermit"] = {
 	name: "Hermit",
 	source: [["P24", 182]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Constitution, Wisdom, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Con", "Wis", "Cha"],
 	skills: ["Medicine", "Religion"],
 	toolProfs: [["Herbalism Kit", "Int"]],
 	gold: 16,
@@ -582,6 +596,8 @@ BackgroundList["merchant"] = {
 	name: "Merchant",
 	source: [["P24", 182]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Constitution, Intelligence, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Con", "Int", "Cha"],
 	skills: ["Animal Handling", "Persuasion"],
 	toolProfs: [["Navigator's Tools", "Wis"]],
 	gold: 22,
@@ -614,6 +630,8 @@ BackgroundList["noble"] = {
 	name: "Noble",
 	source: [["P24", 183]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Intelligence, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Int", "Cha"],
 	skills: ["History", "Persuasion"],
 	toolProfs: [["Gaming Set", 1]],
 	gold: 25,
@@ -685,6 +703,8 @@ BackgroundList["sailor"] = {
 	name: "Sailor",
 	source: [["P24", 184]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Strength, Dexterity, and Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Wis"],
 	skills: ["Acrobatics", "Perception"],
 	toolProfs: [["Navigator's Tools", "Wis"]],
 	gold: 20,
@@ -760,6 +780,8 @@ BackgroundList["scribe"] = {
 	name: "Scribe",
 	source: [["P24", 184]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Intelligence, and Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: ["Dex", "Int", "Wis"],
 	toolProfs: [["Calligrapher's Supplies", "Dex"]],
 	gold: 23,
 	equipleft: [
@@ -784,6 +806,8 @@ BackgroundList["wayfarer"] = {
 	name: "Wayfarer",
 	source: [["P24", 185]],
 	scorestxt: "+2 to one and +1 to another -or- +1 to all three: Dexterity, Wisdom, and Charisma",
+	abilityChecksum: 3,
+	abilitySubset: ["Dex", "Wis", "Cha"],
 	skills: ["Insight", "Stealth"],
 	toolProfs: [["Thieves' Tools", "Dex"]],
 	gold: 16,
@@ -958,8 +982,10 @@ RaceList["dragonborn"] = {
 			calcChanges: {
 				atkAdd: [
 					function (fields, v) {
-						if (v.theWea.dbBreathWeapon && CurrentRace.known === 'dragonborn' && CurrentRace.dmgres) {
-							fields.Damage_Type = CurrentRace.dmgres[0];
+						let raceID = wasm_character.get_race_id();
+						let raceDmgRes = adapter_helper_get_race_property("dmgres", raceID);
+						if (v.theWea.dbBreathWeapon && raceID === 'dragonborn' && raceDmgRes) {
+							fields.Damage_Type = raceDmgRes[0];
 						}
 					}, '', 1
 				]
@@ -989,8 +1015,8 @@ RaceList["dragonborn"] = {
 		source: [["P24", 187]],
 		dmgres: [dmgType],
 		trait: colour + " Dragonborn"+
-			"\n \u2022 Breath Weapon: Instead of one attack during an Attack action on my turn, I can use my breath weapon: all in a 15-ft Cone or a 5-ft wide, 30-ft Line (choose each time) take 1d10 " + dmgType + " damage, Dex save for half damage (DC 8 + Con mod + Prof. Bonus). I can do this my Prof. Bonus per Long Rest. The damage die increases as I level (" + (typePF ? "2d10 at level 5, 3d10 at level 11, 4d10 at level 17" : "see attack") + ")."+
-			"\n \u2022 Draconic Flight (level 5): As a Bonus Action once per Long Rest, I can " + (typePF ? "sprout spectral wings to " : "") + "gain a Fly Speed equal to my Speed. This lasts for 10 min, until I end it (no action), or I'm Incapacitated."
+			"\n \u2022 Breath Weapon: Instead of one attack during an Attack action on my turn, I can use my breath weapon: all in a 15-ft Cone or a 5-ft wide, 30-ft Line (choose each time) take 1d10 " + dmgType + " damage, Dex save for half damage (DC 8 + Con mod + Prof. Bonus). I can do this my Prof. Bonus per Long Rest. The damage die increases as I level (2d10 at level 5, 3d10 at level 11, 4d10 at level 17)."+
+			"\n \u2022 Draconic Flight (level 5): As a Bonus Action once per Long Rest, I can sprout spectral wings to gain a Fly Speed equal to my Speed. This lasts for 10 min, until I end it (no action), or I'm Incapacitated."
 	});
 })
 RaceList["gnome"] = {
@@ -1060,7 +1086,7 @@ AddRacialVariant('gnome', 'rock', {
 		}
 	},
 	trait: "Rock Gnome"+
-		"\n \u2022 Gnomish Cunning: I have Adv" + (typePF ? "antage" : ".") + " on Intelligence, Wisdom, and Charisma saving throws."+
+		"\n \u2022 Gnomish Cunning: I have Advantage on Intelligence, Wisdom, and Charisma saving throws."+
 		"\n \u2022 Rock Gnome Lineage: I know the Mending and Prestidigitation cantrips. I can create a Tiny clockwork device (AC 5, 1 HP) if I spend 10 min casting Prestidigitation; I choose (one option of) one of its effects, which the device produces when a creature uses a Bonus Action to activate it via touch. I can have three such devices in existence at a time, and each falls apart after 8 hours or when I dismantle it via touch as a Utilize action."
 });
 RaceList["goliath"] = {
