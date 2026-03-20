@@ -186,6 +186,9 @@ RaceList["mountain dwarf"] = {
 	heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 2, 0, 0, 0],
+	scorestxt: "+2 Strength, +2 Constitution",
+	abilityChecksum: 4,
+	abilitySubset: [],
 	trait : "Mountain Dwarf (+2 Strength, +2 Constitution)\n\nStonecunning:\n   Whenever I make an Intelligence (History) check related to the origin of stonework, I am considered proficient in the History skill and add double my proficiency bonus to the check, instead of my normal proficiency bonus."
 };
 RaceList["dark elf"] = {
@@ -212,6 +215,9 @@ RaceList["dark elf"] = {
 	heightMetric : " range from under 1,5 to 1,7 metres tall (135 + 5d6 cm)",
 	weightMetric : " weigh around 45 kg (35 + 5d6 \xD7 2d6 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt: "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Drow (+2 Dexterity, +1 Charisma)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDrow Magic: 1st level: Dancing Lights cantrip; 3rd level: Faerie Fire; 5th level: Darkness. Both spells can be used once per long rest. Charisma is my spellcasting ability for these.", // errata to specify once per day is long rest
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -273,6 +279,9 @@ RaceList["wood elf"] = {
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 60 kg (45 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt: "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Wood Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion; such dreams are actually mental exercises that have become reflexive through years of practice. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.\nMask of the Wild: I can attempt to hide even when I am only lightly obscured by foliage, heavy rain, falling snow, mist, and other natural phenomena."
 };
 RaceList["forest gnome"] = {
@@ -294,6 +303,9 @@ RaceList["forest gnome"] = {
 	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 1, 0, 2, 0, 0],
+	scorestxt: "+1 Dexterity, +2 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Forest Gnome (+1 Dexterity, +2 Intelligence)" + (typePF ? "\n" : " ") + "\nNatural Illusionist:\n   I know the Minor Illusion cantrip. Intelligence is my spellcasting ability for it.\n\nSpeak with Small Beasts:\n   Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts.",
 	spellcastingAbility : 4,
 	spellcastingBonus : {
@@ -322,6 +334,9 @@ RaceList["stout halfling"] = {
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 1, 0, 0, 0],
+	scorestxt: "+2 Dexterity, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Stout Halfling (+2 Dexterity, +1 Constitution)\n\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll.\n\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me."
 };
 
@@ -332,6 +347,8 @@ AddRacialVariant("human", "variant", {
 	skillstxt : "Choose any one skill",
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
+	abilityChecksum: 2,
+	abilitySubset: null,
 	trait : "Human (+1 to two different ability scores of my choice)\n\nSkills: I gain proficiency in one skill of my choice.\n\nFeat: I gain one feat of my choice.",
 	eval : function() { AddString('Feat Note 1', 'Human bonus feat', '; '); },
 	removeeval : function() { RemoveString('Feat Note 1', 'Human bonus feat'); }
@@ -3454,7 +3471,10 @@ FeatsList["actor"] = {
 	source : [["P", 165]],
 	descriptionFull : "Skilled at mimicry and dramatics, you gain the following benefits:\n \u2022 Increase your Charisma score by 1, to a maximum of 20.\n \u2022 You have advantage on Charisma (Deception) and Charisma (Performance) checks when trying to pass yourself off as a different person.\n \u2022 You can mimic the speech of another person or the sounds made by other creatures. You must have heard the person speaking, or heard the creature make the sound, for at least 1 minute. A successful Wisdom (Insight) check contested by your Charisma (Deception) check allows a listener to determine that the effect is faked.",
 	description : "Advantage on Charisma (Deception) and (Performance) if trying to pass as another. I can mimic a person's speech or other creature's sounds if I've heard it for at least 1 minute. Wisdom (Insight) vs. Charisma (Deception) to determine the sound is faked. [+1 Charisma]",
-	scores : [0, 0, 0, 0, 0, 1]
+	scores : [0, 0, 0, 0, 0, 1],
+	scorestxt: "Increase your Charisma score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: []
 };
 FeatsList["alert"] = {
 	name : "Alert",
@@ -3468,7 +3488,9 @@ FeatsList["athlete"] = {
 	source : [["P", 165]],
 	descriptionFull : "You have undergone extensive physical training to gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 When you are prone, standing up uses only 5 feet of your movement.\n \u2022 Climbing doesn't cost you extra movement.\n \u2022 You can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet.",
 	description : "Standing up from prone uses only 5 ft of movement. Climbing doesn't cost me extra movement. I can make a running long jump or a running high jump after moving only 5 feet on foot, rather than 10 feet. [+1 Strength or Dexterity]",
-	scorestxt : "+1 Strength or Dexterity"
+	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"]
 };
 FeatsList["charger"] = {
 	name : "Charger",
@@ -3528,7 +3550,10 @@ FeatsList["durable"] = {
 	source : [["P", 166]],
 	descriptionFull : "Hardy and resilient, you gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 When you roll a Hit Die to regain hit points, the minimum number of hit points you regain from the roll equals twice your Constitution modifier (minimum of 2).",
 	description : "When I roll a hit die to regain hit points, the minimum number of hit points I regain from the roll equals twice my Constitution modifier (minimum of 2). [+1 Constitution]",
-	scores : [0, 0, 1, 0, 0, 0]
+	scores : [0, 0, 1, 0, 0, 0],
+	scorestxt: "Increase your Constitution score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: []
 };
 FeatsList["elemental adept"] = {
 	name : "Elemental Adept",
@@ -3588,6 +3613,9 @@ FeatsList["heavily armored"] = {
 	prerequisite : "Proficiency with medium armor",
 	prereqeval : function(v) { return v.mediumArmorProf; },
 	scores : [1, 0, 0, 0, 0, 0],
+	scorestxt: "Increase your Strength score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: [],
 	armorProfs : [false, false, true, false]
 };
 FeatsList["heavy armor master"] = {
@@ -3597,7 +3625,10 @@ FeatsList["heavy armor master"] = {
 	description : "While wearing heavy armor, bludgeoning, piercing, and slashing damage taken from nonmagical weapons is reduced by 3. [+1 Strength]",
 	prerequisite : "Proficiency with heavy armor",
 	prereqeval : function(v) { return v.heavyArmorProf; },
-	scores : [1, 0, 0, 0, 0, 0]
+	scores : [1, 0, 0, 0, 0, 0],
+	scorestxt: "While wearing heavy armor, +1 Strength",
+	abilityChecksum: 1,
+	abilitySubset: []
 };
 FeatsList["inspiring leader"] = {
 	name : "Inspiring Leader",
@@ -3612,7 +3643,10 @@ FeatsList["keen mind"] = {
 	source : [["P", 167]],
 	descriptionFull : "You have a mind that can track time, direction, and detail with uncanny precision. You gain the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You always know which way is north.\n \u2022 You always know the number of hours left before the next sunrise or sunset.\n \u2022 You can accurately recall anything you have seen or heard within the past month.",
 	description : "I always know which way is north and the number of hours left before the next sunrise or sunset. I can accurately recall anything I have seen or heard within the past month. [+1 Intelligence]",
-	scores : [0, 0, 0, 1, 0, 0]
+	scores : [0, 0, 0, 1, 0, 0],
+	scorestxt: "Increase your Intelligence score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: []
 };
 FeatsList["lightly armored"] = {
 	name : "Lightly Armored",
@@ -3620,6 +3654,8 @@ FeatsList["lightly armored"] = {
 	descriptionFull : "You have trained to master the use of light armor, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with light armor.",
 	description : "I gain proficiency with light armor. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"],
 	armorProfs : [true, false, false, false]
 };
 FeatsList["linguist"] = {
@@ -3628,6 +3664,9 @@ FeatsList["linguist"] = {
 	descriptionFull : "You have studied languages and codes, gaining the following benefits:\n \u2022 Increase your Intelligence score by 1, to a maximum of 20.\n \u2022 You learn three languages of your choice.\n \u2022 You can ably create written ciphers. Others can't decipher a code you create unless you teach them, they succeed on an Intelligence check (DC equal to your Intelligence score + your proficiency bonus), or they use magic to decipher it.",
 	calculate : "event.value = \"I can ably create written ciphers that others can't decipher unless I teach them, they succeed on an Intelligence check DC \" + (wasm_character.get_ability('Int') + Number(How('Proficiency Bonus'))) + ' (Intelligence score + proficiency bonus), or they use magic to decipher it. I learn three languages of my choice. [+1 Intelligence]';",
 	scores : [0, 0, 0, 1, 0, 0],
+	scorestxt: "Increase your Intelligence score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: [],
 	languageProfs : [3]
 };
 FeatsList["lucky"] = {
@@ -3800,6 +3839,8 @@ FeatsList["moderately armored"] = {
 	prerequisite : "Proficiency with light armor",
 	prereqeval : function(v) { return v.lightArmorProf; },
 	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"],
 	armorProfs : [false, true, false, true]
 };
 FeatsList["mounted combatant"] = {
@@ -3814,6 +3855,8 @@ FeatsList["observant"] = {
 	descriptionFull : "Quick to notice details of your environment, you gain the following benefits:\n \u2022 Increase your Intelligence or Wisdom score by 1, to a maximum of 20.\n \u2022 If you can see a creature's mouth while it is speaking a language you understand, you can interpret what it's saying by reading its lips.\n \u2022 You have a +5 bonus to your passive Wisdom (Perception) and passive Intelligence (Investigation) scores.",
 	description : "If I can see a creature's mouth while it is speaking a language I understand, I can interpret what it's saying by reading its lips. I have a +5 bonus to passive Wisdom (Perception) and passive Intelligence (Investigation) scores. [+1 Intelligence or Wisdom]",
 	scorestxt : "+1 Intelligence or Wisdom",
+	abilityChecksum: 1,
+	abilitySubset: ["Int", "Wis"],
 	addMod : { type : "skill", field : "passive perception", mod : 5, text : "I have a +5 bonus to passive Wisdom (Perception)." }
 };
 FeatsList["polearm master"] = {
@@ -3845,31 +3888,49 @@ FeatsList["resilient"] = {
 	"strength" : {
 		description : "I gain proficiency with Strength saving throws. [+1 Strength]",
 		scores : [1, 0, 0, 0, 0, 0],
+		scorestxt : "+1 Strength",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Str"]
 	},
 	"dexterity" : {
 		description : "I gain proficiency with Dexterity saving throws. [+1 Dexterity]",
 		scores : [0, 1, 0, 0, 0, 0],
+		scorestxt : "+1 Dexterity",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Dex"]
 	},
 	"constitution" : {
 		description : "I gain proficiency with Constitution saving throws. [+1 Constitution]",
 		scores : [0, 0, 1, 0, 0, 0],
+		scorestxt : "+1 Constitution",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Con"]
 	},
 	"intelligence" : {
 		description : "I gain proficiency with Intelligence saving throws. [+1 Intelligence]",
 		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Int"]
 	},
 	"wisdom" : {
 		description : "I gain proficiency with Wisdom saving throws. [+1 Wisdom]",
 		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Wis"]
 	},
 	"charisma" : {
 		description : "I gain proficiency with Charisma saving throws. [+1 Charisma]",
 		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: [],
 		saves : ["Cha"]
 	}
 };
@@ -4135,6 +4196,8 @@ FeatsList["tavern brawler"] = {
 	descriptionFull : "Accustomed to rough-and-tumble fighting using whatever weapons happen to be at hand, you gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 You are proficient with improvised weapons.\n \u2022 Your unarmed strike uses a d4 for damage.\n \u2022 When you hit a creature with an unarmed strike or an improvised weapon on your turn, you can use a bonus action to attempt to grapple the target.",
 	description : "I am proficient with improvised weapons. My unarmed strike does 1d4 damage. When I hit a creature with an unarmed strike or improvised weapon on my turn, I can attempt to grapple the target as a bonus action. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Con"],
 	action : ['bonus action', 'Grapple (on hit with unarmed/improv.)'],
 	weaponProfs : [false, false, ["Improvised weapons"]],
 	calcChanges : {
@@ -4178,7 +4241,9 @@ FeatsList["weapon master"] = {
 	source : [["P", 170]],
 	descriptionFull : "You have practiced extensively with a variety of weapons, gaining the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with four simple or martial weapons of your choice.",
 	description : "I gain proficiency with four simple or martial weapons of my choice.\n[+1 Strength or Dexterity]",
-	scorestxt : "+1 Strength or Dexterity"
+	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"]
 };
 
 // Add attack entry that is not in the SRD
@@ -7941,6 +8006,9 @@ RaceList["aarakocra"] = {
 	heightMetric : " are about 1,5 metres tall",
 	weightMetric : " weigh between 36 and 45 kg",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Aarakocra (+2 Dexterity, +1 Wisdom)\n\nFlight: I have a flying speed of 50 feet. To use this speed, I can't be wearing medium or heavy armor.\n\nTalons: My unarmed strikes deal 1d4 slashing damage on a hit."
 };
 RaceList["deep gnome"] = {
@@ -7962,6 +8030,9 @@ RaceList["deep gnome"] = {
 	heightMetric : " stand between 90 and 105 cm tall (85 + 5d4 cm)",
 	weightMetric : " weigh around 50 kg (35 + 5d4 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 2, 0, 0],
+	scorestxt : "+1 Dexterity, +2 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Svirfneblin (+1 Dexterity, +2 Intelligence)\n\nStone Camouflage:\n   I have advantage on Dexterity (stealth) checks to hide in rocky terrain."
 };
 RaceList["air genasi"] = {
@@ -7981,6 +8052,9 @@ RaceList["air genasi"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 2, 0, 0, 0],
+	scorestxt : "+1 Dexterity, +2 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Air Genasi (+1 Dexterity, +2 Constitution)\n\nUnending Breath: I can hold my breath indefinitely while I am not incapacitated.\n\nMingle with the Wind: I can cast the Levitate spell once with this trait, requiring no material components, and I regain the ability to cast it this way when I finish a long rest. Constitution is my spellcasting ability for this spell.",
 	spellcastingAbility : 3,
 	features : {
@@ -8023,6 +8097,9 @@ RaceList["earth genasi"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 2, 0, 0, 0],
+	scorestxt : "+1 Strength, +2 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Earth Genasi (+1 Strength, +2 Constitution)" + (typePF ? "\n" : "") + "\nEarth Walk: I can move across difficult terrain made of earth or stone without expending extra movement." + (typePF ? "\n" : "") + "\nMerge with Stone: I can cast the Pass without Trace spell once with this trait, requiring no material components, and I regain the ability to cast it this way when I finish a long rest. Constitution is my spellcasting ability for this spell.",
 	spellcastingAbility : 3,
 	features : {
@@ -8067,6 +8144,9 @@ RaceList["fire genasi"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 2, 1, 0, 0],
+	scorestxt : "+2 Constitution, +1 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Fire Genasi (+2 Constitution, +1 Intelligence)\n\nReach to the Blaze:\n   I know the Produce Flame cantrip.\n   Once I reach 3rd level, I can cast the Burning Hands spell once as a 1st-level spell.\n   I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
 	spellcastingBonus : {
@@ -8110,6 +8190,9 @@ RaceList["water genasi"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 lb (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 2, 0, 1, 0],
+	scorestxt : "+2 Constitution, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Water Genasi (+2 Constitution, +1 Wisdom)\nAmphibious: I can breathe air and water.\nSwim: I have a swimming speed of 30 feet.\nCall to the Wave: I know the Shape Water cantrip.\n   When I reach 3rd level, I can cast the Create or Destroy Water spell as a 2nd-level spell once with this trait, and I regain the ability to cast it this way when I finish a long rest.\n   Constitution is my spellcasting ability for these spells.",
 	spellcastingAbility : 3,
 	spellcastingBonus : {
@@ -8152,6 +8235,9 @@ RaceList["goliath"] = { // Added cold resistance in accordance with the VGtM 202
 	heightMetric : " are between 2 and 2,4 metres tall (190 + 5d10 cm)",
 	weightMetric : " weigh between 100 and 155 kg (90 + 5d10 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 1, 0, 0, 0],
+	scorestxt : "+2 Strength, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"stone's endurance" : {
 			name : "Stone's Endurance",
@@ -9947,6 +10033,9 @@ RaceList["ghostwise halfling"] = {
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Ghostwise Halfling (+2 Dexterity, +1 Wisdom)" + (typePF ? "\n" : " ") + "\nLucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll." + (typePF ? "\n" : " ") + "\nHalfling Nimbleness: I can move through the space of any creature that is of a size larger than me." + (typePF ? "\n" : " ") + "\nSilent Speech: I can speak telepathically to any one creature within 30 feet of me. It only understands me if we share a language."
 };
 RaceList["gray dwarf"] = {
@@ -9971,6 +10060,9 @@ RaceList["gray dwarf"] = {
 	heightMetric : " stand between 1,2 and 1,5 metres tall (110 + 5d4 cm)",
 	weightMetric : " weigh around 70 kg (55 + 5d4 \xD7 4d6 / 10 kg)",
 	scores : [1, 0, 2, 0, 0, 0],
+	scorestxt : "+2 Constitution, +1 Strength",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Duergar (+2 Constitution, +1 Strength)\nStonecunning: Whenever I make an Int (History) check related to the origin of stonework, I am considered proficient in the skill and add double my proficiency bonus to the check.\nSunlight Sensitivity: Disadvantage on attack rolls and Wisdom (Perception) checks that rely on sight when I or what I am trying to attack/perceive is in direct sunlight.\nDuergar Magic: 3rd: Enlarge/Reduce to enlarge; 5th: Invisibility. If not in direct sunlight," + (!typePF ? "\n" : " ") + "I can cast both spells on myself once per long rest without material components, using Int.",
 	spellcastingAbility : 4,
 	features : {
@@ -10232,6 +10324,9 @@ RunFunctionAtEnd(function() {
 		source : [["S", 118]],
 		plural : "Feral tieflings",
 		scores : [0, 2, 0, 1, 0, 0],
+		scorestxt : "+2 Dexterity, +1 Intelligence",
+		abilityChecksum: 3,
+		abilitySubset: [],
 		trait : "Feral Tiefling (+2 Dexterity, +1 Intelligence)\n\nInfernal Legacy:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast the Hellish Rebuke spell once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast the Darkness spell once per long rest.\n   Charisma is my spellcasting ability for these spells."
 	};
 	// Create the RaceList entry
@@ -13170,6 +13265,9 @@ RaceList["fallen aasimar"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 0, 0, 0, 2],
+	scorestxt: "+1 Strength, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Fallen Aasimar (+1 Strength, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nNecrotic Shroud: Once per long rest when I'm 3rd level, I can use an action to transform, causing all within 10 ft of me to make a Cha" + (typePF ? "" : "risma") + " saving throw (DC 8 + Cha mod + Prof Bonus) or be frightened of me until the end of my next turn. This lasts for 1 minute or until I end it as a bonus action. Once on my turn I can have one of my attacks or spells deals my level in extra necrotic damage to one target.",
 	abilitySave : 6,
 	spellcastingAbility : 6,
@@ -13217,6 +13315,9 @@ RaceList["protector aasimar"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 0, 1, 2],
+	scorestxt: "+1 Wisdom, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Protector Aasimar (+1 Wisdom, +2 Charisma)\nLight Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Soul: Once per long rest when I'm 3rd level, I can use an action to transform, gaining glimmer in my eyes and two incorporeal wings. For 1 minute or until I end it as a bonus action, I have 30 feet fly speed; once on my turn I can have one of my attacks or spells deal my level in extra radiant damage to one target.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -13263,6 +13364,9 @@ RaceList["scourge aasimar"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 0, 2],
+	scorestxt: "+1 Constitution, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Scourge Aasimar (+1 Constitution, +2 Charisma)" + (typePF ? "\n" : " ") + "Light Bearer: I know the Light cantrip.\nHealing Hands: As an action, once per long rest, I can touch to heal for my level in HP.\nRadiant Consumption: Once per long rest when I'm 3rd level, I can use an action to radiate bright light in 10-ft radius and dim light for another 10-ft, for 1 minute or until I end it as a bonus action. Once on my turn my attack or spell deals my level in extra radiant damage to one target, and at the end of my turns all creatures within 10 ft of me, including myself, take half my level in radiant damage.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -13311,6 +13415,9 @@ RaceList["bugbear"] = {
 	heightMetric : " are between 1,9 and 2,4 metres tall (185 + 5d12 cm)",
 	weightMetric : " weigh between 115 and 160 kg (90 + 5d12 \xD7 4d6 / 10 kg)",
 	scores : [2, 1, 0, 0, 0, 0],
+	scorestxt: "+2 Strength, +1 Dexterity",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"surprise attack" : {
 			name : "Surprise Attack",
@@ -13339,6 +13446,9 @@ RaceList["firbolg"] = {
 	heightMetric : " are between 2 and 2,5 metres tall (190 + 5d12 cm)",
 	weightMetric : " weigh between 110 and 135 kg (80 + 5d12 \xD7 4d6 / 10 kg)",
 	scores : [1, 0, 0, 0, 2, 0],
+	scorestxt: "+1 Strength, +2 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Firbolg (+1 Strength, +2 Wisdom)" + (typePF ? "\n" : " ") + "Hidden Step: Once per short rest, as a bonus action, I turn invisible until the start of my next turn as per the invisibility spell.\nPowerful Build: I count as one size larger for the weight I can carry.\nFirbolg Magic: I can cast the Detect Magic and Disguise Self spells each once per short rest. With Disguise Self I can seem up to 3 feet shorter. Wisdom is my ability for these spells.\nSpeech of Beast and Leaf: I can make my words understood, in a limited manner, by beasts and plants. I have advantage on Charisma checks to influence them.",
 	spellcastingAbility : 5,
 	features : {
@@ -13395,6 +13505,9 @@ RaceList["goblin"] = {
 	heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
 	weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
 	scores : [0, 2, 1, 0, 0, 0],
+	scorestxt: "+2 Dexterity, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"fury of the small" : {
 			name : "Fury of the Small",
@@ -13427,6 +13540,9 @@ RaceList["hobgoblin"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh between 70 and 90 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 2, 1, 0, 0],
+	scorestxt: "+2 Constitution, +1 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"saving face" : {
 			name : "Saving Face",
@@ -13454,6 +13570,9 @@ RaceList["kenku"] = {
 	heightMetric : " are around 1,5 metres tall (135 + 5d8 cm)",
 	weightMetric : " weigh between 40 and 55 kg (35 + 5d8 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt: "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Kenku (+2 Dexterity, +1 Wisdom)"+
 		"\n \u2022 Expert Forgery: Kenku can duplicate other creatures' handwriting and craftwork. I have advantage on all checks made to produce forgeries or duplicates of existing objects."+
 		"\n \u2022 Mimicry: I can mimic any sounds I have heard, including voices, but can otherwise not speak. Creatures hearing these sounds can determine they are imitations with a successful Wisdom (Insight) check opposed by my Charisma (Deception)."
@@ -13475,6 +13594,9 @@ RaceList["kobold"] = {
 	heightMetric : " are between 65 and 90 cm tall (63 + 5d4 cm)",
 	weightMetric : " weigh between 10 and 15 kg (11 + 5d4 \xD7 2 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 0],
+	scorestxt: "+2 Dexterity",
+	abilityChecksum: 2,
+	abilitySubset: [],
 	features : {
 		"grovel, cower, and beg" : {
 			name : "Grovel, Cower, and Beg",
@@ -13519,6 +13641,9 @@ RaceList["lizardfolk"] = {
 	heightMetric : " range from 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 95 kg (55 + 5d10 \xD7 4d6 / 10 kg)",
 	scores : [0, 0, 2, 0, 1, 0],
+	scorestxt: "+2 Constitution, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"cunning artisan" : {
 			name : "Cunning Artisan",
@@ -13554,6 +13679,9 @@ RaceList["orc"] = {
 	heightMetric : " are usually over 1,8 metres tall (160 + 5d8 cm)",
 	weightMetric : " weigh between 100 and 125 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 1, 0, 0, 0],
+	scorestxt: "+2 Strength, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Orc (+2 Strength, +1 Constitution)\n\nPowerful Build: I count as one size larger when determining my carrying capacity and the weight I can push, drag, or lift.\n\nAggressive: As a bonus action, I can move up to my speed toward an enemy that I can see or hear. I must end my move closer to this enemy than I started.",
 	action : [["bonus action", "Aggressive (dash to enemy)"]],
 	carryingCapacity : 2
@@ -13585,6 +13713,9 @@ RaceList["tabaxi"] = {
 	heightMetric : " range from 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt: "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"feline agility" : {
 			name : "Feline Agility",
@@ -13619,6 +13750,9 @@ RaceList["triton"] = {
 	heightMetric : " are around 1,6 metres tall (135 + 5d10 cm)",
 	weightMetric : " weigh around 70 kg (40 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 1, 0, 0, 1],
+	scorestxt: "+1 Strength, +1 Constitution, and +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Triton (+1 Strength, +1 Constitution, and +1 Charisma)\nControl Air and Water: I can cast the Fog Cloud spell. Once I reach 3rd level, I can cast the Gust of Wind spell. Once I reach 5th level, I can cast the Wall of Water spell. All three spells can be used once per long rest. Charisma is my spellcasting ability for these spells.\nEmissary of the Sea: I can communicate simple ideas to beasts that can breathe water.\nGuardians of the Depths: Adapted to even the most extreme ocean depths, I have resistance to cold damage." + (typePF ? "\n" : " ") + "Amphibious: I can breathe air and water.",
 	spellcastingAbility : 6,
 	features : {
@@ -13684,6 +13818,9 @@ RaceList["yuan-ti pureblood"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
+	scorestxt: "+1 Intelligence, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Yuan-Ti Pureblood (+1 Intelligence, +2 Charisma)"+
 		"\n \u2022 Innate Spellcasting: I know the Poison Spray cantrip and I can cast Animal Friendship on snakes at will. Once I reach 3rd level, I can cast Suggestion once per long rest. Charisma is my spellcasting ability for these spells."+
 		"\n \u2022 Magic Resistance: I have advantage on saving throws against spells and other magical effects."+
@@ -15033,6 +15170,9 @@ RaceList.tortle = {
 	heightMetric : " stand between 1,5 and 1,8 metres tall (150 + 5d8 cm)",
 	weightMetric : " weigh around 190 kg (180 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [2, 0, 0, 0, 1, 0],
+	scorestxt: "+2 Strength, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	action : [["action", "Shell Defense (start)"], ["bonus action", "Shell Defense (end)"]],
 	trait : "Tortle (+2 Strength, +1 Wisdom)"+
 	"\n \u2022 Claws: My unarmed strikes with my claws deal 1d4 slashing damage."+
@@ -15102,6 +15242,8 @@ AddRacialVariant("human", "yuan-ti transformed variant", {
 	skillstxt : "Choose any one skill",
 	scorestxt : "+1 to two different ability scores of my choice",
 	scores : [0, 0, 0, 0, 0, 0],
+	abilityChecksum: 2,
+	abilitySubset: null,
 	vision : [["Darkvision", 60]],
 	savetxt : {
 		immune : ["poison"],
@@ -15690,6 +15832,9 @@ RaceList["grung"] = {
 	height : " range from 2 1/2 to 3 1/2 feet tall",
 	weight : " weigh around 30 lb",
 	scores : [0, 2, 1, 0, 0, 0],
+	scorestxt: "+2 Dexterity, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Grung (+2 Dexterity, +1 Constitution)\nPoisonous Skin: Creatures that touch me must make a DC 12 Con save or be poisoned for 1 min, repeating the save at the end of each of its turns. My piercing weapon attacks deal +2d4 poison damage if the target fails a DC 12 Con save.\nStanding Leap: Without a running start, I can long jump to 25 ft and high jump to 15 ft.\nWater Dependency: I can breathe air and water. I need to be immersed in water for 1 hour every day or suffer 1 level of exhaustion at the end of that day until I immerse for 1 hour."
 };
 
@@ -18380,6 +18525,8 @@ FeatsList["dragon fear"] = {
 	descriptionFull : "When angered, you radiate menace. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes frightened of you for 1 minute. If the frightened target takes any damage, it can repeat the saving throw, ending the effect on itself on a success.",
 	calculate : "event.value = 'I can use my Breath Weapon to roar instead. Chosen creatures within 30 ft that see and hear me must make a DC ' + (8 + Number(How('Proficiency Bonus')) + Number(wasm_character.get_ability_modifier('Cha'))) + ' Wis save (8 + Prof Bonus + Cha mod) or be frightened of me for 1 min. A target can repeat the save whenever it takes damage. [+1 Str, Con, or Cha]';",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Con", "Cha"],
 	action : [['action', 'Breath Weapon or Dragon Fear', 'Breath Weapon']]
 };
 FeatsList["dragon hide"] = {
@@ -18390,6 +18537,8 @@ FeatsList["dragon hide"] = {
 	descriptionFull : "You manifest scales and claws reminiscent of your draconic ancestors. You gain the following benefits:\n \u2022 Increase your Strength, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.\n \u2022 You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to 1d4 + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike.",
 	description : "I gain retractable claws that I can retract or extend, requiring no action. While extended, my unarmed strikes deal 1d4 slashing damage. My scales harden, giving me an AC of 13 + Dexterity modifier + shield when I'm not wearing armor. [+1 Str, Con, or Cha]",
 	scorestxt : "+1 Strength, Constitution, or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Con", "Cha"],
 	weaponOptions : {
 		baseWeapon : "unarmed strike",
 		regExpSearch : /^(?=.*(retractable|dragon))(?=.*claw).*$/i,
@@ -18438,7 +18587,10 @@ FeatsList["dwarven fortitude"] = {
 	prereqeval : function(v) { return CurrentRace.known.indexOf('dwarf') !== -1; },
 	descriptionFull : "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 Whenever you take the Dodge action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1).",
 	description : "Whenever I take the Dodge action in combat, I can spend one Hit Die to heal myself. I roll the die, add my Constitution modifier, and regain a number of hit points equal to the total (minimum of 1). [+1 Constitution]",
-	scores : [0, 0, 1, 0, 0, 0]
+	scores : [0, 0, 1, 0, 0, 0],
+	scorestxt : "Increase your Constitution score by 1",
+	abilityChecksum: 1,
+	abilitySubset: []
 };
 FeatsList["elven accuracy"] = {
 	name : "Elven Accuracy",
@@ -18447,7 +18599,9 @@ FeatsList["elven accuracy"] = {
 	prereqeval : function(v) { return (/elf|eladrin|avariel|grugach|shadar-kai/i).test(CurrentRace.known); },
 	descriptionFull : "The accuracy of elves is legendary, especially that of elf archers and spellcasters. You have uncanny aim with attacks that rely on precision rather than brute force. You gain the following benefits:\n \u2022 Increase your Dexterity, Intelligence, Wisdom, or Charisma score by 1, to a maximum of 20.\n \u2022 Whenever you have advantage on an attack roll using Dexterity, Intelligence, Wisdom, or Charisma, you can reroll one of the dice once.",
 	description : "Whenever I have advantage on an attack roll that uses Dexterity, Intelligence, Wisdom, or Charisma, I can reroll one of the dice once. [+1 Dexterity, Intelligence, Wisdom, or Charisma]",
-	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma"
+	scorestxt : "+1 Dexterity, Intelligence, Wisdom, or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Dex", "Int", "Wis", "Cha"]
 };
 FeatsList["fade away"] = {
 	name : "Fade Away",
@@ -18457,6 +18611,8 @@ FeatsList["fade away"] = {
 	descriptionFull : "Your people are clever, with a knack for illusion magic. You have learned a magical trick for fading away when you suffer harm. You gain the following benefits:\n \u2022 Increase your Dexterity or Intelligence score by 1, to a maximum of 20.\n \u2022 Immediately after you take damage, you can use a reaction to magically become invisible until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest.",
 	description : "As a reaction when I take damage, I can magically become invisible until the end of my next turn or until I attack, deal damage, or force someone to make a saving throw. Once I do this, I can't do so again until I finish a short rest. [+1 Dexterity or Intelligence]",
 	scorestxt : "+1 Dexterity or Intelligence",
+	abilityChecksum: 1,
+	abilitySubset: ["Dex", "Int"],
 	action : ["reaction", ""],
 	usages : 1,
 	recovery : "short rest"
@@ -18469,6 +18625,8 @@ FeatsList["fey teleportation"] = { // this code includes contributions by Soilen
 	descriptionFull : "Your study of high elven lore has unlocked fey power that few other elves possess, except your eladrin cousins. Drawing on your fey ancestry, you can momentarily stride through the Feywild to shorten your path from one place to another. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 You learn to speak, read, and write Sylvan.\n \u2022 You learn the Misty Step spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell.",
 	description : "I can cast Misty Step without using a spell slot. I can do so once per short rest. Intelligence is my spellcasting ability for this spell. I also learn to speak, read, and write Sylvan. [+1 Intelligence or Charisma]",
 	scorestxt : "+1 Intelligence or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Int", "Cha"],
 	spellcastingBonus : {
 		name : "Once per short rest",
 		spellcastingAbility : 4,
@@ -18487,7 +18645,9 @@ FeatsList["flames of phlegethos"] = {
 	prereqeval : function(v) { return CurrentRace.known.indexOf('tiefling') !== -1; },
 	descriptionFull : "You learn to call on hellfire to serve your commands. You gain the following benefits:\n \u2022 Increase your Intelligence or Charisma score by 1, to a maximum of 20.\n \u2022 When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.\n \u2022 Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes 1d4 fire damage.",
 	description : "When I cast a fire damage spell, I can reroll any 1 on fire damage dice once. I then sheathe myself in flame until my next turn ends. These shed bright light in 30 ft, dim light in 30 ft and cause any within 5 ft that hit me in melee to take 1d4 fire damage. [+1 Int or Cha]",
-	scorestxt : "+1 Intelligence or Charisma"	
+	scorestxt : "+1 Intelligence or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Int", "Cha"]
 };
 FeatsList["infernal constitution"] = {
 	name : "Infernal Constitution",
@@ -18497,6 +18657,9 @@ FeatsList["infernal constitution"] = {
 	descriptionFull : "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You have resistance to cold and poison damage.\n \u2022 You have advantage on saving throws against being poisoned.",
 	description : "I have resistance to cold and poison damage and I have advantage on saving throws against being poisoned.\n[+1 Constitution]",
 	scores : [0, 0, 1, 0, 0, 0],
+	scorestxt : "Increase your Constitution score by 1",
+	abilityChecksum: 1,
+	abilitySubset: [],
 	dmgres : ["Cold", "Poison"],
 	savetxt : { adv_vs : ["poison"] }
 };
@@ -18508,6 +18671,8 @@ FeatsList["orcish fury"] = {
 	descriptionFull : "Your fury burns tirelessly. You gain the following benefits:\n \u2022 Increase your Strength or Constitution score by 1, to a maximum of 20.\n \u2022 When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.\n \u2022 Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack.",
 	description : "Once per short rest, I can roll an extra damage die for an attack with a simple or martial weapon. In addition, Immediately after I use my Relentless Endurance trait, I can use my reaction to make one weapon attack. [+1 Strength or Constitution]",
 	scorestxt : "+1 Strength or Constitution",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Con"],
 	action : ["reaction", " (after Relentless Endurance)"],
 	usages : 1,
 	recovery : "short rest",
@@ -18532,6 +18697,8 @@ FeatsList["second chance"] = {
 	descriptionFull : "Fortune favors you when someone tries to strike you. You gain the following benefits:\n \u2022 Increase your Dexterity, Constitution, or Charisma score by 1, to a maximum of 20.\n \u2022 When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't use it again until you roll initiative at the start of combat or until you finish a short or long rest.",
 	description : "When a creature I can see hits me with an attack roll, I can use my reaction to force that creature to reroll. Once I use this ability, I can't do so again until I roll initiative at the start of combat or I finish a short rest. [+1 Dexterity, Constitution, or Charisma]",
 	scorestxt : "+1 Dexterity, Constitution, or Charisma",
+	abilityChecksum: 1,
+	abilitySubset: ["Dex", "Con", "Cha"],
 	action : ["reaction", ""],
 	usages : 1,
 	recovery : "Combat"
@@ -18544,6 +18711,8 @@ FeatsList["squat nimbleness"] = {
 	descriptionFull : "You are uncommonly nimble for your race. You gain the following benefits:\n \u2022 Increase your Strength or Dexterity score by 1, to a maximum of 20.\n \u2022 Increase your walking speed by 5 feet.\n \u2022 You gain proficiency in the Acrobatics or Athletics skill (your choice).\n \u2022 You have advantage on any Strength (Athletics) or Dexterity (Acrobatics) check you make to escape from being grappled.",
 	description : "My walking speed increases by 5 ft. I gain proficiency in either the Acrobatics or the Athletics skill. I have advantage on Dexterity (Acrobatics) and Strength (Athletics) checks I make to escape from being grappled. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"],
 	skillstxt : "Acrobatics or Athletics",
 	speed : { walk : {spd : "+5", enc : "+5" } }
 };
@@ -20270,6 +20439,9 @@ RaceList["baalzebul tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
+	scorestxt : "+1 Intelligence, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Baalzebul Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Maladomini:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Ray of Sickness once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Crown of Madness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20332,6 +20504,9 @@ RaceList["dispater tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
+	scorestxt : "+1 Dexterity, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Dispater Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Dis:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Detect Thoughts once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20388,6 +20563,9 @@ RaceList["fierna tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 0, 1, 2],
+	scorestxt : "+1 Wisdom, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Fierna Tiefling (+1 Wisdom, +2 Charisma)\n\nLegacy of Phlegethos:\n   I know the Friends cantrip.\n   At 3rd level, I can cast Charm Person once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Suggestion once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20450,6 +20628,9 @@ RaceList["glasya tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
+	scorestxt : "+1 Dexterity, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Glasya Tiefling (+1 Dexterity, +2 Charisma)\n\nLegacy of Malbolge:\n   I know the Minor Illusion cantrip.\n   At 3rd level, I can cast Disguise Self once per long rest.\n   At 5th level, I can also cast Invisibility once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20506,6 +20687,9 @@ RaceList["levistus tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 0, 2],
+	scorestxt : "+1 Constitution, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Levistus Tiefling (+1 Constitution, +2 Charisma)\n\nLegacy of Stygia:\n   I know the Ray of Frost cantrip.\n   At 3rd level, I can cast Armor of Agathys once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Darkness once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20568,6 +20752,9 @@ RaceList["mammon tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
+	scorestxt : "+1 Intelligence, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Mammon Tiefling (+1 Intelligence, +2 Charisma)\nLegacy of Minauros:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Tenser's Floating Disk once per short rest.\n   At 5th level, I can also cast Arcane Lock without a material component once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20631,6 +20818,9 @@ RaceList["mephistopheles tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 0, 2],
+	scorestxt : "+1 Intelligence, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Mephistopheles Tiefling (+1 Intelligence, +2 Charisma)\n\nLegacy of Cania:\n   I know the Mage Hand cantrip.\n   At 3rd level, I can cast Burning Hands once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Flame Blade once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20693,6 +20883,9 @@ RaceList["zariel tiefling"] = {
 	heightMetric : " range from 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 0, 0, 0, 2],
+	scorestxt : "+1 Strength, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Zariel Tiefling (+1 Strength, +2 Charisma)\n\nLegacy of Avernus:\n   I know the Thaumaturgy cantrip.\n   At 3rd level, I can cast Searing Smite once per long rest as a 2nd-level spell.\n   At 5th level, I can also cast Branding Smite once per long rest.\n   Charisma is my spellcasting ability for these spells.",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -20761,6 +20954,9 @@ RaceList["eladrin-mtof"] = {
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d12 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt : "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	abilitySave : 6,
 	trait : "Eladrin (+2 Dexterity, +1 Charisma)" + desc([
 		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
@@ -20822,6 +21018,9 @@ RaceList["sea elf"] = {
 	heightMetric : " range from under 1,5 to almost 1,8 metres tall (140 + 5d8 cm)",
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 1, 0, 0, 0],
+	scorestxt : "+2 Dexterity, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Sea Elf (+2 Dexterity, +1 Constitution)" + desc([
 		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. While meditating, I can dream after a fashion. After resting in this way, I gain the same benefit that a human does from 8 hours of sleep, thus needing only 4 hours for a long rest.",
 		"Child of the Sea. I have 30 ft swimming speed and can breathe air and water.",
@@ -20852,6 +21051,9 @@ RaceList["shadar-kai elf"] = {
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 52 kg (40 + 5d8 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 1, 0, 0, 0],
+	scorestxt : "+2 Dexterity, +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Shadar-kai (+2 Dexterity, +1 Constitution)" + desc([
 		"Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).",
 		"Blessing of the Raven Queen: Once per long rest, as a bonus action, I can magically teleport up to 30 ft to an unoccupied space I can see.",
@@ -20888,6 +21090,9 @@ RaceList["githyanki-mtof"] = {
 	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 61 kg (45 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [2, 0, 0, 1, 0, 0],
+	scorestxt : "+2 Strength, +1 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Githyanki (+2 Strength, +1 Intelligence)\n" + (typePF ? "\n" : "") + "Githyanki Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast Jump once per long rest.",
@@ -20976,6 +21181,9 @@ RaceList["githzerai-mtof"] = {
 	heightMetric : " are more leaner and taller than humans, most are a slender 1,8 metres tall (150 + 5d12 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [0, 0, 0, 1, 2, 0],
+	scorestxt : "+1 Intelligence, +2 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Githzerai (+1 Intelligence, +2 Wisdom)\n" + (typePF ? "\n" : "") + "Githzerai Psionics:" + desc([
 		"I know the Mage Hand cantrip, but the hand is invisible.",
 		"At 3rd level, I can cast Shield once per long rest.",
@@ -21719,6 +21927,7 @@ MagicItemsList["powered armor"] = {
 	attunement : true,
 	weight : 65,
 	scoresOverride : [18, 0, 0, 0, 0, 0],
+	scorestxt : "increases my Strength to 18",
 	savetxt : { text : ["Adv. on death saves"] },
 	action : [["bonus action", " (use energy)"]],
 	armorAdd : "Powered Armor",
@@ -21848,6 +22057,9 @@ RaceList["centaur"] = {
 	heightMetric : " stand around 2 metres tall, with their equine bodies reaching about 1,5 metres at the withers (183 + 3d8 cm)",
 	weightMetric : " weigh around 300 kg (270 + 3d8 \xD7 4d12 / 10 kg)",
 	scores : [2, 0, 0, 0, 1, 0],
+	scorestxt : "+2 Strength +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Centaur (+2 Strength +1 Wisdom)" + desc([
 		"Fey: My creature type is fey, rather than humanoid.",
 		"Hooves: I can use my hooves for unarmed strikes that deal 1d4 bludgeoning damage.",
@@ -21884,6 +22096,9 @@ RaceList["loxodon"] = {
 	heightMetric : " stand between 2 and 2,5 metres tall (200 + 5d10 cm)",
 	weightMetric : " weigh between 135 and 200 kg (133 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 2, 0, 1, 0],
+	scorestxt : "+2 Constitution, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Loxodon (+2 Constitution, +1 Wisdom)" +
 		"\n  Powerful Build: I count as one size larger for my carrying capacity, push, drag, and lift." +
 		"\n  Natural Armor: " + (typePF ? "I have an AC of" : "My thick, leathery skin gives me AC") + " 12 + Constitution modifier + shield." +
@@ -21920,6 +22135,9 @@ RaceList["minotaur"] = {
 	heightMetric : " stand around 175 cm tall (163 + 5d8 cm)",
 	weightMetric : " weigh around 135 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 	scores : [2, 0, 1, 0, 0, 0],
+	scorestxt : "+2 Strength +1 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	abilitySave : 1,
 	trait : "Minotaur (+2 Strength +1 Constitution)" + desc([
 		"Horns: I can use my horns for unarmed strikes that deal 1d6 piercing damage.",
@@ -21980,8 +22198,10 @@ RaceList["simic hybrid"] = {
 	age : " age slightly faster than their base humanoid race and their maximum lifespan is somewhat reduced",
 	height : " are of the same height as typical for their humanoid race",
 	weight : " are of the same weight as typical for their humanoid race",
-	scorestxt : "Simic Hybrid: +2 Constitution and +1 to one other ability score of my choice;",
+	scorestxt : "+2 Constitution and +1 to one other ability score of my choice",
 	scores : [0, 0, 2, 0, 0, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Int", "Wis", "Cha"],
 	trait : "Simic Hybrid (+2 Constitution and +1 to one other ability score of my choice)\n   Animal Enhancement (1st level): Choose one to three types of enhancement using the \"Racial Options\" button: Manta Glide, Nimble Climber, or Underwater Adaptation.\n   Animal Enhancement (5th level): At 5th level, I gain another animal enhancement. I can either choose one I didn't take at 1st level or choose Grappling Appendages, Carapace, or Acid Spit.",
 	features : {
 		"animal enhancement" : {
@@ -22107,6 +22327,9 @@ RaceList["vedalken"] = {
 	heightMetric : " stand between 1,8 and 2 metres tall (163 + 5d10 cm)",
 	weightMetric : " are slender, weighing around 100 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 0, 2, 1, 0],
+	scorestxt : "+2 Intelligence, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Vedalken (+2 Intelligence, +1 Wisdom)" + desc([
 		"Vedalken Dispassion: I have advantage on all Intelligence, Wisdom, and Charisma saves.",
 		"Tireless Precision: I am proficient with any one tool and one skill of my choice: Arcana, History, Investigation, Medicine, Performance, or Sleight of Hand. Whenever I make an ability check with the chosen tool or skill, I can add 1d4 to the check's total.",
@@ -24807,6 +25030,9 @@ RaceList["verdan"] = {
 	height : " are between 3 and a half and 4 feet tall, plus 2 feet from 5th level onwards",
 	heightMetric : " are between 100 and 120 cm tall, plus 60 cm from 5th level onwards",
 	scores : [0, 0, 1, 0, 0, 2],
+	scorestxt : "+1 Constitution, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Verdan (+1 Constitution, +2 Charisma)\nSudden Growth Spurt: At 5th level, I grow 2 ft, increasing my size from Small to Medium.\nBlack Blood Healing: When I roll a 1 or 2 on any HD I spend at the end of short rest, I can reroll the die and must use the new roll.\nLimited Telepathy: I can telepathically communicate simple ideas and straightforward concepts to a creature I can see within 30 ft, if it can understand at least one language.\nTelepathic Insight: I have advantage on Wisdom and Charisma saving throws.",
 	features : {
 		"sudden growth spurt" : {
@@ -26059,6 +26285,9 @@ RaceList.locathah = {
 	},
 	skills : ["athletics", "perception"],
 	scores : [2, 1, 0, 0, 0, 0],
+	scorestxt : "+2 Strength, +1 Dexterity",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	armorOptions : [{
 		regExpSearch : /^(?=.*natural)(?=.*armou?r).*$/i,
 		name : "Natural Armor",
@@ -26105,6 +26334,9 @@ RaceList["dankwood goblin"] = {
 	heightMetric : " are between 100 and 120 cm tall (100 + 5d4 cm)",
 	weightMetric : " weigh between 20 and 30 kg (17 + 5d4 \xD7 2 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	action : [["bonus action", "Nimble Escape (disengage/hide)"]],
 	trait : "Dankwood Goblin (+2 Dexterity, +1 Wisdom)"+
 	"\n   Speak with Small Beasts: Through sounds and gestures, I can communicate simple ideas with Small or smaller beasts. Dankwood goblins love animals and often keep squirrels, badgers, rabbits, moles, woodpeckers, and other creatures as beloved pets."+
@@ -26143,6 +26375,8 @@ RaceList["changeling"] = {
 	weightMetric : " weigh around 65 kg (52 + 5d4 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Charisma and +1 to one other ability score of my choice",
 	scores : [0, 0, 0, 0, 0, 2],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Con", "Int", "Wis"],
 	trait : "Changeling (+2 Charisma and +1 to one other ability score of my choice)\nShapechanger: As an action, I can change my appearance and voice to or from a humanoid-shaped form I have seen, not changing my equipment. I determine the specifics of the form like hair length, eye color, and sex. I can adjust my height and weight, but not so much that my size changes. I revert back when I die. I can make myself appear as a member of another race, though none of my game statistics change.",
 	action : [["action", "Shapechanger"]]
 };
@@ -26172,6 +26406,8 @@ FeatsList["revenant blade"] = {
 	descriptionFull : "You are descended from a master of the double blade and their skills have passed on to you. You gain the following benefits:\n \u2022 Increase your Dexterity or Strength score by 1, to a maximum of 20.\n \u2022 While you are holding a double-bladed scimitar with two hands, you gain a + 1 bonus to Armor Class.\n \u2022 A double-bladed scimitar has the finesse property when you wield it.",
 	description : "My mastery with the double bladed scimitar allows me to treat it as having the finesse trait. In addition, I gain +1 AC while wielding it with two hands. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex"],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -26210,6 +26446,9 @@ RaceList["kalashtar"] = {
 	heightMetric : " range from 1,7 to 1,9 metres tall (160 + 5d6 cm)",
 	weightMetric : " weigh around 65 kg (50 + 5d6 \xD7 2d6 / 10 kg)",
 	scores : [0, 0, 0, 0, 2, 1],
+	scorestxt : "+2 Wisdom, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Kalashtar (+2 Wisdom, +1 Charisma)\n   Dual Mind: I have advantage on Wisdom saving throws.\n   Mind Link: I can speak telepathically to any creature I can see within 10 ft \xD7 my level, as long as it can speak at least one language. As an action, I can give that creature the ability to speak telepathically back to me while it can see me and is within range. This lasts for 1 hour, until I use this ability on another creature, or until I end it as an action.\n   Severed from Dreams: I don't dream and thus immune to spells that affect dreams.",
 	action : [['action', 'Mind Link (start/stop)']]
 };
@@ -26234,6 +26473,9 @@ RaceList["beasthide shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [1, 0, 2, 0, 0, 0],
+	scorestxt : "+1 Strength, +2 Constitution",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Beasthide Shifter (+1 Strength, +2 Constitution)\n\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to 1d6 + my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have a +1 bonus to AC.",
 	features : {
 		"shift" : {
@@ -26274,6 +26516,9 @@ RaceList["longtooth shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [2, 1, 0, 0, 0, 0],
+	scorestxt : "+2 Strength, +1 Dexterity",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Longtooth Shifter (+2 Strength, +1 Dexterity)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I use my elongated fangs to make unarmed strikes, dealing 1d6 piercing damage. As a bonus action, I can maken one attack with my fangs.",
 	action : [['bonus action', 'Longtooth Fangs attack (while shifted)']],
 	features : {
@@ -26306,6 +26551,9 @@ RaceList["swiftstride shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt : "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Swiftstride Shifter (+2 Dexterity, +1 Charisma)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Con" + (typePF ? "stitution modifier (minimum 1 temporary hit point" : " mod (minimum 1 temp HP") + ").\nWhile transformed like this, my walking speed increases with 10 ft.\nAs a reaction when an enemy ends its turn within 5 ft of me while I'm shifted, I can move 10 ft without provoking opportunity attacks.",
 	action : [['reaction', 'Stride (while shifted)']],
 	features : {
@@ -26338,6 +26586,9 @@ RaceList["wildhunt shifter"] = {
 	heightMetric : " range from under 1,5 to 1,8 metres tall (4'6\" + 5d8 cm)",
 	weightMetric : " weigh around 65 kg (40 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 2, 0],
+	scorestxt : "+1 Dexterity, +2 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Wildhunt Shifter (+1 Dexterity, +2 Wisdom)\nShifting: As a bonus action once per short rest, I can assume a more bestial appearance.\nThis transformation lasts for 1 minute, until I die, or until I revert back as a bonus action.\nWhen I shift, I gain temporary HP equal to my level + my Constitution modifier (minimum 1 temporary hit point).\nWhile transformed like this, I have advantage on Wisdom checks and no creature within 30 ft can make an attack roll with advantage against me, unless I'm incapacitated.",
 	features : {
 		"shift" : {
@@ -26377,6 +26628,8 @@ RaceList["warforged"] = {
 	weightMetric : " weigh around 135 kg (125 + 5d6 \xD7 8 / 10 kg)",
 	scorestxt : "+2 Constitution and +1 to one other ability score of my choice",
 	scores : [0, 0, 2, 0, 0, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Int", "Wis", "Cha"],
 	trait : "Warforged (+2 Constitution and +1 to one other ability score" + (typePF ? "" : " of my choice") + ")\nWarforged Resilience: I do not need to sleep, eat, drink, or breathe.\nSentry's Rest: To benefit from a long rest, I need to enter an inactive state for 6 hours, during which I am not rendered unconscious and can see and hear as normal.\nIntegrated Protection: I gain +1 AC and I can don only armor with which I'm proficient. To don or doff armor, I must (un)incorporate it into my body over the course of 1 hour, which can be done during resting. Donned armor can't be removed against my will while I'm alive.",
 	extraAC : {
 		name : "Integrated Protection",
@@ -26409,6 +26662,8 @@ RaceList["dragonmark detection half-elf"] = {
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Wisdom and +1 to one other ability score of my choice",
 	scores : [0, 0, 0, 0, 2, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Con", "Int", "Cha"],
 	trait : "Half-Elf, Dragonmark of Detection (+2 Wisdom \u0026 +1 to one other ability of my choice)\n   Deductive Intuition: I can add +1d4 to my Intelligence (Investigation) and Wisdom (Insight) checks.\n   Magical Detection: I can cast Detect Magic and Detect Poison and Disease each once per long rest. At 3rd level, I can also cast See Invisibility once per long rest. Wisdom is my spellcasting ability for these and none of them require material components.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 5, // changed from Int to Wis by errata
 	features : {
@@ -26490,6 +26745,9 @@ RaceList["dragonmark finding half-orc"] = {
 	heightMetric : " range from 1,5 to well over 1,8 metres tall (150 + 5d10 cm)",
 	weightMetric : " weigh around 100 kg (65 + 5d10 \xD7 4d6 / 10 kg)",
 	scores : [0, 0, 1, 0, 2, 0],
+	scorestxt : "+1 Constitution, +2 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Half-Orc, Dragonmark of Finding (+1 Constitution, +2 Wisdom)\n   Hunter's Intuition: I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.\n   Finder's Magic: I can cast Hunter's Mark once per long rest. At 3rd level, I can also cast Locate Object once per long rest. Wisdom is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 5,
 	features : {
@@ -26551,6 +26809,9 @@ RaceList["dragonmark finding human"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 1, 0, 2, 0],
+	scorestxt : "+1 Constitution, +2 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Human, Dragonmark of Finding (+1 Constitution, +2 Wisdom)\n   Hunter's Intuition: I can add +1d4 to my Wisdom (Perception) and Wisdom (Survival) checks.\n   Finder's Magic: I can cast Hunter's Mark once per long rest. At 3rd level, I can also cast Locate Object once per long rest. Wisdom is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 5,
 	features : {
@@ -26612,6 +26873,8 @@ RaceList["dragonmark handling human"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Wisdom and +1 to one other ability score of my choice",
 	scores : [0, 0, 0, 0, 2, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Con", "Int", "Cha"],
 	trait : "Human, Dragonmark of Handling (+2 Wisdom, +1 to one other ability score of my choice)\n   Wild Intuition: I can add +1d4 to my Wisdom (Animal Handling) and Intelligence (Nature) checks.\n   Primal Connection: I can cast Animal Friendship and Speak with Animals each once per short rest. Wisdom is my spellcasting ability for these.\n   The Bigger They Are: When I cast Animal Friendship or Speak with Animals, I can target a monstrosity with an Intelligence of 3 or lower instead of a beast.",
 	spellcastingAbility : 5,
 	features : {
@@ -26679,6 +26942,9 @@ RaceList["dragonmark healing halfling"] = {
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Halfling, Dragonmark of Healing (+2 Dexterity, +1 Wisdom)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nMedical Intuition: I can add +1d4 to my Wisdom (Medicine) and herbalism kit checks.\nHealing Touch: I can cast Cure Wounds each once per long rest. At 3rd level, I can also cast Lesser Restoration once per long rest. Wisdom is my spellcasting ability for these.\nSpells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	spellcastingAbility : 5,
 	features : {
@@ -26740,6 +27006,9 @@ RaceList["dragonmark hospitality halfling"] = {
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt : "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Halfling, Dragonmark of Hospitality (+2 Dexterity, +1 Charisma)\nLucky: When I roll a 1 on an attack, check, or save, I can reroll it but must use the result." + (typePF ? " " : "\n") + "Halfling Nimbleness: I can move through the space of Medium and larger creatures.\nEver Hospitable: I can add +1d4 to my Charisma (Persuasion), brewer's supplies, and cook's utensils checks." + (typePF ? "\n" : " ") + "Innkeeper's Magic: I know the Prestidigitation cantrip and I can cast Purify Food and Drink and Unseen Servant each once per long rest. Charisma as my spellcasting ability for these. Spells of the Mark: I add several spells to my class' spell list.",
 	spellcastingAbility : 6,
 	features : {
@@ -26800,6 +27069,8 @@ RaceList["dragonmark making human"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Intelligence and +1 to one other ability score of my choice",
 	scores : [0, 0, 0, 2, 0, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Dex", "Con", "Wis", "Cha"],
 	trait : "Human, Dragonmark of Making (+2 Intelligence, +1 to one other ability score of my choice)\n   Artisan's Intuition: I can add +1d4 to Arcana checks and checks with artisan's tools.\n   Spellsmith: I know the Mending cantrip. I can cast Magic Weapon once per long rest and when I do so, it doesn't require concentration and lasts for 1 hour. Intelligence is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es)." + (typePF ? "" : "\n   Maker's Gift: I gain proficiency with one type of artisan's tools of my choice."),
 	spellcastingAbility : 4,
 	features : {
@@ -26860,6 +27131,8 @@ RaceList["dragonmark passage human"] = {
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scorestxt : "+2 Dexterity and +1 to one other ability score of my choice",
 	scores : [0, 2, 0, 0, 0, 0],
+	abilityChecksum: 3,
+	abilitySubset: ["Str", "Con", "Int", "Wis", "Cha"],
 	trait : "Human, Dragonmark of Passage (+2 Dexterity, +1 to one other ability score of my choice)\n   Intuitive Motion: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a land vehicle.\n   Magical Passage: I can cast Misty Step once per long rest, using Dexterity as my spellcasting ability.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).\n   Courier's Speed: My base walking speed is 35 ft.",
 	spellcastingAbility : 2,
 	features : {
@@ -26909,6 +27182,9 @@ RaceList["dragonmark scribing gnome"] = {
 	heightMetric : " are 90 to 120 cm tall (2'11\" + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 0, 0, 2, 0, 1],
+	scorestxt : "+2 Intelligence, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Gnome, Dragonmark of Scribing (+2 Intelligence, +1 Charisma)\n   Gifted Scribe: I can add +1d4 to my Intelligence (History) checks and ability checks with calligrapher's supplies.\n   Scribe's Insight: I know the Message cantrip. I can cast Comprehend Languages once per long rest. At 3rd level, I can also cast Magic Mouth once per long rest. Intelligence is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 4,
 	features : {
@@ -26995,6 +27271,9 @@ RaceList["dragonmark sentinel human"] = {
 	heightMetric : " range from barely 1,5 to well over 1,8 metres tall (145 + 5d10 cm)",
 	weightMetric : " weigh around 75 kg (50 + 5d10 \xD7 4d4 / 10 kg)",
 	scores : [0, 0, 2, 0, 1, 0],
+	scorestxt : "+2 Intelligence, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Human, Dragonmark of Sentinel (+2 Constitution, +1 Wisdom)\n  Sentinel's Intuition: I can add +1d4 my Wisdom (Insight) and Wisdom (Perception) checks.\n  Guardian's Shield: I can cast Shield once per long rest, using Wisdom as my spellcasting ability.\n  Vigilant Guardian: Once per long rest as a reaction when a creature I can see within 5 ft is hit by an attack roll, I can swap places with it and I'm hit by the attack instead.\n  Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 5,
 	features : {
@@ -27055,6 +27334,9 @@ RaceList["dragonmark shadow elf"] = {
 	heightMetric : " range from under 1,5 to over 1,8 metres tall (140 + 5d10 cm)",
 	weightMetric : " weigh around 55 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 0, 1],
+	scorestxt : "+2 Dexterity, +1 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Elf, Dragonmark of Shadow (+2 Dexterity, +1 Charisma)\n   Trance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\n   Cunning Intuition: I can add +1d4 to my Cha" + (typePF ? "risma" : "") + " (Performance) and Dex" + (typePF ? "terity" : "") + " (Stealth) checks.\n   Shape Shadows: I know the Minor Illusion cantrip. At 3rd level, I can cast Invisibility once per long rest. Charisma is my spellcasting ability for these.\n   Spells of the Mark: I add several spells to " + (typePF ? "my class' spell list." : "the spell list of my spellcasting class(es)."),
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -27114,6 +27396,9 @@ RaceList["dragonmark storm half-elf"] = {
 	heightMetric : " range from 1,5 to 1,8 metres tall (145 + 5d8 cm)",
 	weightMetric : " weigh around 70 kg (50 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
+	scorestxt : "+1 Dexterity, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Half-Elf, Dragonmark of Storm (+1 Dexterity, +2 Charisma)\n   Windwright's Intuition: I can add +1d4 to my Dexterity (Acrobatics) checks and any ability checks involving operating or maintaining a water or air vehicle.\n   Headwinds: I know the Gust cantrip. Once I reach 3rd level, I can cast Gust of Wind once per long rest. Charisma is my spellcasting ability for these spells.\n   Spells of the Mark: I add several spells to the spell list of my spellcasting class(es).",
 	spellcastingAbility : 6,
 	spellcastingBonus : {
@@ -27172,6 +27457,9 @@ RaceList["dragonmark warding dwarf"] = {
 	heightMetric : " stand between 1,2 and 1,5 metres tall (120 + 5d4 cm)",
 	weightMetric : " weigh around 75 kg (60 + 5d4 \xD7 4d6 / 10 kg)",
 	scores : [0, 0, 2, 1, 0, 0],
+	scorestxt : "+2 Constitution, +1 Intelligence",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Dwarf, Dragonmark of Warding (+2 Constitution, +1 Intelligence)\n" + (typePF ? "   " : "- ") + "Warder's Intuition: I can add +1d4 to my Intelligence (Investigation) checks and ability checks with thieves' tools." + (typePF ? "\n   Stonecunning: When I make an Int (History) check related to origin of stonework, I am considered having expertise in the History skill.\n   " : " - Stonecunning: Expertise in History when concerning stonework.\n- ") + "Wards and Seals: I can cast Alarm and Mage Armor each once per long rest. At 3rd level, I can also cast Arcane Lock once per long rest. Intelligence is my spellcasting ability for these and none of them require material components.\n" + (typePF ? "   " : "- ") + "Spells of the Mark: I add several spells to my class' spell list(s).",
 	spellcastingAbility : 4,
 	features : {
@@ -27243,6 +27531,9 @@ FeatsList["aberrant dragonmark"] = {
 	descriptionFull : "You have manifested an aberrant dragonmark. Determine its appearance and the flaw associated with it. You gain the following benefits:\n \u2022 Increase your Constitution score by 1, to a maximum of 20.\n \u2022 You learn a cantrip of your choice from the sorcerer spell list. In addition, choose a 1st-level spell from the sorcerer spell list. You learn that spell and can cast it through your mark. Once you cast it, you must finish a short or long rest before you can cast it again through the mark. Constitution is your spellcasting ability for these spells.\n \u2022 When you cast the 1st-level spell through your mark, you can expend one of your Hit Dice and roll it. If you roll an even number, you gain a number of temporary hit points equal to the number rolled. If you roll an odd number, one random creature within 30 feet of you (not including you) takes force damage equal to the number rolled. If no other creatures are in range, you take the damage.\n\nYou also develop a random flaw from the Aberrant Dragonmark Flaws table.\n\n" + toUni("d8\tFlaw") + "\n  1\tYour mark is a source of constant physical pain.\n  2\tYour mark whispers to you. Its meaning can be unclear.\n  3\tWhen you're stressed, the mark hisses audibly.\n  4\tThe skin around the mark is burned, scaly, or withered.\n  5\tAnimals are uneasy around you.\n  6\tYou have a mood swing any time you use your mark.\n  7\tYour looks change slightly whenever you use the mark.\n  8\tYou have horrific nightmares after you use your mark.",
 	description : "I learn a sorcerer cantrip, and a 1st-level spell that I can cast once per short rest. They use Con as spellcasting ability. I can expend and roll an HD when I cast the level 1 spell. If even, I gain it in temp HP. If odd, a random target in 30 ft takes it in force damage. [+1 Con]",
 	scores : [0, 0, 1, 0, 0, 0],
+	scorestxt : "Increase your Constitution score by 1",
+	abilityChecksum: 1,
+	abilitySubset: [],
 	spellcastingAbility : 3,
 	spellcastingBonus : [{
 		name : "Sorcerer cantrip",
@@ -29585,6 +29876,9 @@ RaceList["pallid elf"] = { // contains contributions by Smashman
 	heightMetric : " range from under 1,5 to 1,7 metres tall (137 + 5d10 cm)",
 	weightMetric : " weigh around 50 kg (40 + 5d10 \xD7 2d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Pallid Elf (+2 Dexterity, +1 Wisdom)\nTrance: Elves don't need to sleep, but meditate semiconsciously, for 4 hours a day. This gives the same benefit as a human gets from 8 hours of sleep (long rest takes only 4 hours).\nIncisive Sense: I have advantage on Intelligence (Investigation) and Wisdom (Insight) checks.\nBlessing of the Moonweaver: I know the Light cantrip. At 3rd level, I can cast Sleep once per long rest. At 5th level, I can also cast Invisibility on myself once per long rest. Spells cast using this trait require no material components and use Wisdom as spellcasting ability.",
 	spellcastingAbility : 5,
 	spellcastingBonus : {
@@ -29663,6 +29957,9 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 	heightMetric : " average about 90 cm tall (80 + 5d4)",
 	weightMetric : " weigh around 18 kg (16 + 5d4 / 10 kg)",
 	scores : [0, 2, 0, 0, 1, 0],
+	scorestxt : "+2 Dexterity, +1 Wisdom",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	trait : "Lotusden Halfling (+2 Dexterity, +1 Wisdom)" + (typePF ?
 		"\n- Lucky: When I roll a 1 on an attack roll, ability check, or saving throw, I can reroll the die and must use the new roll."+
 		"\n- Child of the Wood: I know the Druidcraft cantrip. At 3rd level, I can cast Entangle once per long rest. At 5th level, I can cast Spike Growth once per long rest without a material component. Wisdom is my spellcasting ability for these."+
@@ -29792,6 +30089,9 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
 		weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 		scores : [0, 0, 0, 2, 0, 1],
+		scorestxt : "+2 Intelligence, +1 Charisma",
+		abilityChecksum: 3,
+		abilitySubset: [],
 		trait : "Draconblood Dragonborn (+2 Intelligence, +1 Charisma)" + desc([
 			"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
 			EGtW_forcefulPresenceStr
@@ -29920,6 +30220,9 @@ RaceList["lotusden halfling"] = { // contains contributions by Metacomet10
 		heightMetric : " stand well over 1,8 metres tall (170 + 5d8 cm)",
 		weightMetric : " weigh around 110 kg (80 + 5d8 \xD7 4d6 / 10 kg)",
 		scores : [2, 1, 0, 0, 0, 0],
+		scorestxt : "+2 Strength, +1 Constitution",
+		abilityChecksum: 3,
+		abilitySubset: [],
 		trait : "Ravenite Dragonborn (+2 Strength, +1 Constitution)" + desc([
 			"Draconic Ancestry: Choose one type of dragon using the \"Racial Options\" button. I gain a breath weapon as determined by the dragon type chosen.",
 			EGtW_vengefulAssaultStr
@@ -31390,6 +31693,9 @@ MagicItemsList["orb of the veil"] = { // no automation for halving the fire dama
 	descriptionFull: "This onyx sphere bears deep, spiraling grooves and dangles from an iron chain. While the orb is on your person, you gain the following benefits:\n Your Wisdom score increases by 2, as does your maximum for that score.\n You gain darkvision out to a range of 60 feet. If you already have darkvision, the orb increases its range by 60 feet.\n You have advantage on Wisdom checks to find hidden doors and paths.\n   " + toUni("Curse") + ". The orb is cursed, and becoming attuned to it extends the curse to you. As long as you remain cursed, you are unwilling to part with the orb, keeping it on your person at all times. All nonmagical flames within 30 feet of you automatically extinguish, and fire damage dealt by you is halved.",
 	vision : [["Darkvision", "fixed 60"], ["Darkvision", "+60"]],
 	scores : [0, 0, 0, 0, 2, 0],
+	scorestxt : "This orb increases my Wisdom and maximum by 2",
+	abilityChecksum: 2,
+	abilitySubset: [],
 	scoresMaximum : [0, 0, 0, 0, 22, 0],
 	weight : 3
 };
@@ -32402,6 +32708,9 @@ RaceList["leonin"] = { // includes contributions by BraabHimself
 	heightMetric : " are typically over 1,8 metres tall, with some standing over 2,1 metres (167 + 5d10 cm)",
 	weightMetric : " weigh around 120 kg (80 + 5d10 \xD7 4d6 / 10 kg)",
 	scores : [1, 0, 2, 0, 0, 0],
+	scorestxt : "+2 Constitution +1 Strength",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	features : {
 		"daunting roar" : {
 			name : "Daunting Roar",
@@ -32443,6 +32752,9 @@ RaceList["satyr"] = { // includes contributions by BraabHimself
 	heightMetric : " range from just under 1,5 metres to about 1,8 metres in height, with generally slender builds (145 + 5d8 cm)",
 	weightMetric : " weigh around 66 kg (45 + 5d8 \xD7 4d4 / 10 kg)",
 	scores : [0, 1, 0, 0, 0, 2],
+	scorestxt : "+1 Dexterity, +2 Charisma",
+	abilityChecksum: 3,
+	abilitySubset: [],
 	skills : ["Performance", "Persuasion"],
 	toolProfs : [["Musical instrument", 1]],
 	trait : "Satyr (+1 Dexterity, +2 Charisma)" + desc([
@@ -33936,6 +34248,8 @@ RaceList["custom lineage"] = {
 	},
 	languageProfs : ["Common", 1],
 	scorestxt : "+2 to one ability score of my choice",
+	abilityChecksum: 2,
+	abilitySubset: null,
 	eval : function() { AddString('Feat Note 1', 'Custom lineage bonus feat', '; '); },
 	removeeval : function() { RemoveString('Feat Note 1', 'Custom lineage bonus feat'); },
 	trait : "Custom Lineage (+2 to one ability score of my choice)" + desc([
@@ -38194,14 +38508,18 @@ FeatsList["chef"] = {
 	description : "During a short rest, I can make food for 4 + my Prof" + (typePF ? "" : "iciency") + " Bonus creatures; if they eat it and spend 1" + (typePF ? "+ HD" : " or more Hit Die") + ", they regain 1d8 HP. In one hour or during a long rest, I can make treats equal to my Prof" + (typePF ? "" : "iciency") + " Bonus that last for 8 hours; As a bonus action, one can eat a treat, gaining my Prof" + (typePF ? "" : "iciency") + " Bonus in temporary HP. [+1 " + (typePF ? "Con or Wis" : "Constitution or Wisdom") + "]",
 	action : [["bonus action", "Consume Chef's Treat"]],
 	toolProfs : ["Cook's utensils"],
-	scorestxt : "+1 Constitution or Wisdom"
+	scorestxt : "+1 Constitution or Wisdom",
+	abilityChecksum: 1,
+	abilitySubset: ["Con", "Wis"]
 };
 FeatsList["crusher"] = {
 	name : "Crusher",
 	source : [["T", 79]],
 	descriptionFull : "You are practiced in the art of crushing your enemies, granting you the following benefits:\n \u2022 Increase your Strength or Constitution by 1, to a maximum of 20.\n \u2022 Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.\n \u2022 When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the start of your next turn.",
 	description : "Once per turn, when I hit a creature no more than one size larger than me with an attack that deals bludgeoning damage, I can move it 5 ft to an unoccupied space. If I score a critical hit that deals bludgeoning damage, attacks against the creature hit gain advantage until the start of my next turn. [+1 " + (typePF ? "Str or Con" : "Strength or Constitution") + "]",
-	scorestxt : "+1 Strength or Constitution"
+	scorestxt : "+1 Strength or Constitution",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Con"]
 };
 FeatsList["eldritch adept"] = {
 	name : "Eldritch Adept",
@@ -38239,17 +38557,26 @@ FeatsList["fey touched"] = {
 	"intelligence" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them " + (typePF ? "by expending" : "with") + " a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
-		scores : [0, 0, 0, 1, 0, 0]
+		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
-		scores : [0, 0, 0, 0, 1, 0]
+		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		description : "I learn Misty Step and one 1st level divination or enchantment spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
-		scores : [0, 0, 0, 0, 0, 1]
+		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 // Add the fighting initiate only when all other code has run, so that we get fighting styles added by the code
@@ -38339,6 +38666,9 @@ FeatsList["gunner"] = {
 	descriptionFull : "You have a quick hand and keen eye when employing firearms, granting you the following benefits:\n \u2022 Increase your Dexterity score by 1, to a maximum of 20.\n \u2022 You gain proficiency with firearms (see \"Firearms\" in the Dungeon Master's Guide).\n \u2022 You ignore the loading property of firearms.\n \u2022 Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls.",
 	description: "I gain proficiency with firearms. I ignore the loading property of firearms. I don't suffer disadvantage on ranged attack rolls for being within 5 ft of a hostile creature. [+1 Dexterity]",
 	scores : [0, 1, 0, 0, 0, 0],
+	scorestxt : "Increase your Dexterity score by 1, to a maximum of 20",
+	abilityChecksum: 1,
+	abilitySubset: [],
 	weaponProfs : [false, false, ["Firearms"]],
 	calcChanges : {
 		atkAdd : [
@@ -38376,6 +38706,8 @@ FeatsList["piercer"] = {
 	descriptionFull : "You have achieved a penetrating precision in combat, granting you the following benefits:\n \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.\n \u2022 Once per turn, when you hit a creature with an attack that deals piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll.\n \u2022 When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes.",
 	description : "Once per turn when I deal piercing damage to a target, I can reroll one of the damage die and use the new roll. If I deal piercing damage on a critical hit to a target, I can roll one additional damage die. [+1 Strength or Dexterity]",
 	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"],
 	calcChanges : {
 		atkAdd : [
 			function (fields, v) {
@@ -38428,17 +38760,26 @@ FeatsList["shadow touched"] = {
 	"intelligence" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Intelligence is my spellcasting ability for these spells. [+1 Intelligence]",
 		spellcastingAbility : 4,
-		scores : [0, 0, 0, 1, 0, 0]
+		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Wisdom is my spellcasting ability for these spells. [+1 Wisdom]",
 		spellcastingAbility : 5,
-		scores : [0, 0, 0, 0, 1, 0]
+		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		description : "I learn Invisibility and one 1st level illusion or necromancy spell. I can cast each once per long rest at their lowest level without expending a spell slot, and can cast them by expending a spell slot as normal. Charisma is my spellcasting ability for these spells. [+1 Charisma]",
 		spellcastingAbility : 6,
-		scores : [0, 0, 0, 0, 0, 1]
+		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 FeatsList["skill expert"] = {
@@ -38447,14 +38788,18 @@ FeatsList["skill expert"] = {
 	descriptionFull : "You have honed your proficiency with particular skills, granting you the following benefits:\n \u2022 Increase one ability score of your choice by 1, to a maximum of 20.\n \u2022 You gain proficiency in one skill of your choice.\n \u2022 Choose one skill in which you have proficiency. You gain expertise with that skill, which means your proficiency bonus is doubled for any ability check you make with it. The skill you choose must be one that isn't already benefiting from a feature, such as Expertise, that doubles your proficiency bonus.",
 	description: "I gain proficiency in one skill and expertise in that same skill or another skill I'm proficient with. [+1 to one ability score of my choice]",
 	skillstxt : "Proficiency with one skill, and\n   Expertise with one skill I'm proficient with",
-	scorestxt : "+1 to one ability score of my choice"
+	scorestxt : "+1 to one ability score of my choice",
+	abilityChecksum: 1,
+	abilitySubset: null
 };
 FeatsList["slasher"] = {
 	name : "Slasher",
 	source : [["T", 81], ["UA:F2", 3]],
 	descriptionFull : "You've learned where to cut to have the greatest results, granting you the following benefits:\n \u2022 Increase your Strength or Dexterity by 1, to a maximum of 20.\n \u2022 Once per turn when you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn.\n \u2022 When you score a critical hit that deals slashing damage to a creature, you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls.",
 	description : "Once per turn when I deal slashing damage to a target, I can reduce its speed by 10 ft until the start of my next turn. When I score a critical hit that deals slashing damage to a creature, the grievous wound causes it to have disadvantage on all attack rolls until the start of my next turn. [+1 Strength or Dexterity]",
-	scorestxt : "+1 Strength or Dexterity"
+	scorestxt : "+1 Strength or Dexterity",
+	abilityChecksum: 1,
+	abilitySubset: ["Str", "Dex"]
 };
 FeatsList["telekinetic"] = {
 	name: "Telekinetic",
@@ -38490,17 +38835,26 @@ FeatsList["telekinetic"] = {
 	"intelligence" : {
 		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Intelligence is my spellcasting ability for these. [+1 Intelligence]",
 		spellcastingAbility : 4,
-		scores : [0, 0, 0, 1, 0, 0]
+		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Wisdom is my spellcasting ability for these. [+1 Wisdom]",
 		spellcastingAbility : 5,
-		scores : [0, 0, 0, 0, 1, 0]
+		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		description : "I know the Mage Hand cantrip, can cast it without components, and the spectral hand can be invisible. As a bonus action, I can shove one creature I can see within 30 ft. It must make a Str" + (typePF ? "" : "ength") + " save vs. this feat's spell save DC or be moved 5 ft" + (typePF ? "" : " away") + " from or towards me. Charisma is my spellcasting ability for these. [+1 Charisma]",
 		spellcastingAbility : 6,
-		scores : [0, 0, 0, 0, 0, 1]
+		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 FeatsList["telepathic"] = {
@@ -38526,17 +38880,26 @@ FeatsList["telepathic"] = {
 	"intelligence" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Intelligence is my spellcasting ability for this. [+1 Int" + (typePF ? "" : "elligence") + "]",
 		spellcastingAbility : 4,
-		scores : [0, 0, 0, 1, 0, 0]
+		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Wisdom is my spellcasting ability for this. [+1 Wis" + (typePF ? "" : "dom") + "]",
 		spellcastingAbility : 5,
-		scores : [0, 0, 0, 0, 1, 0]
+		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		description : "I can telepathically speak to a creature I can see within 60 ft in a language I know, but it can't respond telepathically. I can cast Detect Thoughts once per long rest at its lowest level, requiring no spell slot or components, and can cast it using a spell slot as normal. Charisma is my spellcasting ability for this. [+1 Cha" + (typePF ? "" : "risma") + "]",
 		spellcastingAbility : 6,
-		scores : [0, 0, 0, 0, 0, 1]
+		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 
@@ -40394,6 +40757,7 @@ MagicItemsList["gloves of soul catching"] = {
 	descriptionFull : "Your Constitution score is 20 while you wear these gloves. This property of the gloves has no effect on you if your Constitution is already 20 or higher."+
 	"\n   After making a successful unarmed strike while wearing these gloves, you can use the gloves to deal an extra 2d10 force damage to the target, and you regain a number of hit points equal to the force damage dealt. Alternatively, instead of regaining hit points in this way, you can choose to gain advantage on one attack roll, ability check, or saving throw you make before the end of your next turn.",
 	scoresOverride : [0, 0, 20, 0, 0, 0],
+	scorestxt : "My Constitution increases to 20 while wearing these gloves.",
 	weaponsAdd : ["Gloves of Soul Catching"],
 	weaponOptions : [{
 		baseWeapon : "unarmed strike",
@@ -42439,15 +42803,24 @@ FeatsList["gift of the gem dragon"] = {
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(wasm_character.get_ability_modifier('Int'))) + ' (8 + Prof Bonus + Int mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Intelligence]';",
-		scores : [0, 0, 0, 1, 0, 0]
+		scores : [0, 0, 0, 1, 0, 0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(wasm_character.get_ability_modifier('Wis'))) + ' (8 + Prof Bonus + Wis mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Wisdom]';",
-		scores : [0, 0, 0, 0, 1, 0]
+		scores : [0, 0, 0, 0, 1, 0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		calculate : "event.value = 'As a reaction when I take damage from a creature that is within 10 ft of me, I can have it take 2d8 force damage and push it up to 10 ft away from me. If it succeeds a Strength save DC ' + (8 + Number(How('Proficiency Bonus')) + Number(wasm_character.get_ability_modifier('Cha'))) + ' (8 + Prof Bonus + Cha mod), it halves the damage and isn't pushed. I can do this my Proficiency Bonus per long rest. [+1 Charisma]';",
-		scores : [0, 0, 0, 0, 0, 1]
+		scores : [0, 0, 0, 0, 0, 1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 FeatsList["gift of the metallic dragon"] = {
@@ -43676,7 +44049,7 @@ RaceList["owlin"] = {
 	skills : ["Stealth"],
 	vision : [["Darkvision", 120]],
 	languageProfs : ["Common", 1],
-	scorestxt : "+2 to one ability score and +1 to a different score of my choice, -or- +1 to three different scores of my choice",
+	scoresGeneric: true,
 	trait : "Owlin"+
 	"\n \u2022 Flight: Thanks to my wings, I have a flying speed equal to my walking speed. I can't use this flying speed if I'm wearing medium or heavy armor."+
 	"\n \u2022 Silent Feathers: I have proficiency in the Stealth skill."
@@ -47553,15 +47926,24 @@ FeatsList["knight of the crown"] = {
 	choices : ["Strength", "Dexterity", "Constitution"],
 	"strength" : {
 		description : "As a bonus action, I can use Commanding Rally on one ally within 30 ft that can see or hear me to immediately make one weapon attack as a reaction. +1d8 is added to the damage roll, if it hits. I can do this my proficiency bonus per long rest. [+1 Strength]",
-		scores : [1,0,0,0,0,0]
+		scores : [1,0,0,0,0,0],
+		scorestxt : "+1 Strength",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"dexterity" : {
 		description : "As a bonus action, I can use Commanding Rally on one ally within 30 ft that can see or hear me to immediately make one weapon attack as a reaction. +1d8 is added to the damage roll, if it hits. I can do this my proficiency bonus per long rest. [+1 Dexterity]",
-		scores : [0,1,0,0,0,0]
+		scores : [0,1,0,0,0,0],
+		scorestxt : "+1 Dexterity",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"constitution" : {
 		description : "As a bonus action, I can use Commanding Rally on one ally within 30 ft that can see or hear me to immediately make one weapon attack as a reaction. +1d8 is added to the damage roll, if it hits. I can do this my proficiency bonus per long rest. [+1 Constitution]",
-		scores : [0,0,1,0,0,0]
+		scores : [0,0,1,0,0,0],
+		scorestxt : "+1 Constitution",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 FeatsList["knight of the rose"] = {
@@ -47581,15 +47963,24 @@ FeatsList["knight of the rose"] = {
 	choices : ["Constitution", "Wisdom", "Charisma"],
 	"constitution" : {
 		calculation : 'event.value = "As a bonus action, I can use Bolstering Rally on myself or an ally within 30 ft that I can see and can see or hear me. They gain 1d8 + " + (Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Con"))) + " temporary hit points (1d8 + proficiency bonus + Constitution modifier). I can do this my proficiency bonus per long rest. [+1 Constitution]";',
-		scores : [0,0,1,0,0,0]
+		scores : [0,0,1,0,0,0],
+		scorestxt : "+1 Constitution",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		calculation : 'event.value = "As a bonus action, I can use Bolstering Rally on myself or an ally within 30 ft that I can see and can see or hear me. They gain 1d8 + " + (Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Wis"))) + " temporary hit points (1d8 + proficiency bonus + Wisdom modifier). I can do this my proficiency bonus per long rest. [+1 Wisdom]";',
-		scores : [0,0,0,0,1,0]
+		scores : [0,0,0,0,1,0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		calculation : 'event.value = "As a bonus action, I can use Bolstering Rally on myself or an ally within 30 ft that I can see and can see or hear me. They gain 1d8 + " + (Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Cha"))) + " temporary hit points (1d8 + proficiency bonus + Charisma modifier). I can do this my proficiency bonus per long rest. [+1 Charisma]";',
-		scores : [0,0,0,0,0,1]
+		scores : [0,0,0,0,0,1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 FeatsList["knight of the sword"] = {
@@ -47608,15 +47999,24 @@ FeatsList["knight of the sword"] = {
 	choices : ["Intelligence", "Wisdom", "Charisma"],
 	"intelligence" : {
 		calculation : 'event.value = "Once per turn, when I hit a creature with a weapon attack, I can have it make a Wisdom save DC " + (8 + Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Int"))) + " (8 + Prof Bonus + Int mod) or be frightened of me until my next turn ends. On a successful save, the target has disadv. on its next attack before its next turn ends. I can do this my proficiency bonus per long rest. [+1 Int]";',
-		scores : [0,0,0,1,0,0]
+		scores : [0,0,0,1,0,0],
+		scorestxt : "+1 Intelligence",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"wisdom" : {
 		calculation : 'event.value = "Once per turn, when I hit a creature with a weapon attack, I can have it make a Wisdom save DC " + (8 + Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Wis"))) + " (8 + Prof Bonus + Wis mod) or be frightened of me until my next turn ends. On a successful save, the target has disadv. on its next attack before its next turn ends. I can do this my proficiency bonus per long rest. [+1 Wis]";',
-		scores : [0,0,0,0,1,0]
+		scores : [0,0,0,0,1,0],
+		scorestxt : "+1 Wisdom",
+		abilityChecksum: 1,
+		abilitySubset: []
 	},
 	"charisma" : {
 		calculation : 'event.value = "Once per turn, when I hit a creature with a weapon attack, I can have it make a Wisdom save DC " + (8 + Number(How("Proficiency Bonus")) + Number(wasm_character.get_ability_modifier("Cha"))) + " (8 + Prof Bonus + Cha mod) or be frightened of me until my next turn ends. On a successful save, the target has disadv. on its next attack before its next turn ends. I can do this my proficiency bonus per long rest. [+1 Cha]";',
-		scores : [0,0,0,0,0,1]
+		scores : [0,0,0,0,0,1],
+		scorestxt : "+1 Charisma",
+		abilityChecksum: 1,
+		abilitySubset: []
 	}
 };
 
