@@ -1,0 +1,13 @@
+source_id: XGE
+source_name: Xanathar's Guide to Everything
+ammunition_variants:
+  - id: adamantine
+    name: Adamantine
+    source_page: 78
+    description: Ammunition made of or coated with adamantine is unusually effective when used to break objects. Whenever a piece of adamantine ammunition hits an object, the hit is a critical hit.\nThe adamantine version of ten pieces of ammunition costs 500 gp more than the normal version, whether the ammunition is made of the metal or coated with it.
+    pattern_prefix: adamantine\s+
+  - id: walloping
+    name: Walloping
+    source_page: 139
+    description: This ammunition packs a wallop. A creature hit by the ammunition must succeed on a DC 10 Strength saving throw or be knocked prone.
+    pattern_prefix: walloping\s+

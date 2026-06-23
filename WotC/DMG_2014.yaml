@@ -1,0 +1,43 @@
+source_id: DMG
+source_name: Dungeon Master's Guide
+ammunition:
+  - id: renaissance_bullet
+    name: Bullets, Renaissance
+    weight: 0.2
+    icon: Bullet
+    default_amount: 10
+    source_page: 268
+    cost_cp: 30
+    pattern: renaissance\s+bullets?
+  - id: modern_bullet
+    name: Bullets, Modern
+    weight: 0.1
+    icon: Bullet
+    default_amount: 10
+    source_page: 268
+    cost_cp: 50
+    pattern: modern\s+bullets?
+  - id: energy_cell
+    name: Energy Cell
+    weight: 0
+    icon: Bullet
+    default_amount: 10
+    source_page: 268
+    cost_cp: 1000
+    pattern: energy\s+cells?
+ammunition_variants:
+  - id: plus_1
+    name: "+1"
+    source_page: 150
+    description: You have a +1 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+    pattern_prefix: (?:\+|plus)\s*(?:one|1))\s+
+  - id: plus_2
+    name: "+2"
+    source_page: 150
+    description: You have a +2 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+    pattern_prefix: (?:\+|plus)\s*(?:two|2))\s+
+  - id: plus_3
+    name: "+3"
+    source_page: 150
+    description: You have a +3 bonus to attack and damage rolls made with this piece of magic ammunition. Once it hits a target, the ammunition is no longer magical.
+    pattern_prefix: (?:\+|plus)\s*(?:three|3))\s+

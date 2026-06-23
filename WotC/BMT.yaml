@@ -1,0 +1,18 @@
+source_id: BMT
+source_name: The Book of Many Things
+ammunition_variants:
+  - id: bloodseeker
+    name: Bloodseeker
+    source_page: 66
+    description: Ranged attack rolls made with this ammunition have advantage against any creature that doesn't have all its hit points.
+    pattern_prefix: bloodseeker\s+
+  - id: dried_leech
+    name: Dried Leech
+    source_page: 67
+    description: This leech has been dried and imbued with a mote of animating magic. If you hit a creature with a ranged attack roll using this ammunition, the leech springs to life and sinks its teeth into the target, dealing 1d4 piercing damage at the start of each of the target's turns. If the leech deals at least 10 damage or the target dies, the leech falls off. A creature, including the target, can use its action to detach the leech. Once a leech is no longer attached to its target, the leech dies and is no longer magical.
+    pattern_prefix: dried\s+leech\s+
+  - id: winged
+    name: Winged
+    source_page: 69
+    description: Ranged weapon attack rolls made with this ammunition ignore half and three-quarters cover. In addition, attacking at long range doesn't impose disadvantage on ranged weapon attack rolls made with this ammunition.
+    pattern_prefix: winged\s+

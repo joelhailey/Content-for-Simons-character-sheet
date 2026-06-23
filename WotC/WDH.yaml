@@ -1,0 +1,11 @@
+source_id: WDH
+source_name: "Waterdeep: Dragon Heist"
+ammunition:
+  - id: oversized_arrow
+    name: Arrows, Oversized
+    weight: 0.1
+    icon: Arrow
+    default_amount: 20
+    source_page: 201
+    cost_cp: 10
+    pattern: oversized\s+arrows?

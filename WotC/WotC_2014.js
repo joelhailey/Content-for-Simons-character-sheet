@@ -6015,7 +6015,7 @@ WeaponsList["pistol"] = {
 	weight : 3,
 	description : "Ammunition, loading",
 	abilitytodamage : true,
-	ammo : "renaissance bullet",
+	ammo : "renaissance_bullet",
 	defaultExcluded : true
 };
 WeaponsList["musket"] = {
@@ -6030,7 +6030,7 @@ WeaponsList["musket"] = {
 	weight : 10,
 	description : "Ammunition, loading, two-handed",
 	abilitytodamage : true,
-	ammo : "renaissance bullet",
+	ammo : "renaissance_bullet",
 	defaultExcluded : true
 };
 WeaponsList["pistol automatic"] = {
@@ -6045,7 +6045,7 @@ WeaponsList["pistol automatic"] = {
 	weight : 3,
 	description : "Ammunition, reload (15 shots)",
 	abilitytodamage : true,
-	ammo : "modern bullet",
+	ammo : "modern_bullet",
 	defaultExcluded : true
 };
 WeaponsList["revolver"] = {
@@ -6060,7 +6060,7 @@ WeaponsList["revolver"] = {
 	weight : 3,
 	description : "Ammunition, reload (6 shots)",
 	abilitytodamage : true,
-	ammo : "modern bullet",
+	ammo : "modern_bullet",
 	defaultExcluded : true
 };
 WeaponsList["rifle hunting"] = {
@@ -6075,7 +6075,7 @@ WeaponsList["rifle hunting"] = {
 	weight : 8,
 	description : "Ammunition, reload (5 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "modern bullet",
+	ammo : "modern_bullet",
 	defaultExcluded : true
 };
 WeaponsList["rifle automatic"] = {
@@ -6090,7 +6090,7 @@ WeaponsList["rifle automatic"] = {
 	weight : 8,
 	description : "Ammunition, burst fire, reload (30 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "modern bullet",
+	ammo : "modern_bullet",
 	defaultExcluded : true
 };
 WeaponsList["shotgun"] = {
@@ -6105,7 +6105,7 @@ WeaponsList["shotgun"] = {
 	weight : 7,
 	description : "Ammunition, reload (2 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "modern bullet",
+	ammo : "modern_bullet",
 	defaultExcluded : true
 };
 WeaponsList["laser pistol"] = {
@@ -6120,7 +6120,7 @@ WeaponsList["laser pistol"] = {
 	weight : 2,
 	description : "Ammunition, reload (50 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "energy cell",
+	ammo : "energy_cell",
 	defaultExcluded : true
 };
 WeaponsList["antimatter rifle"] = {
@@ -6135,7 +6135,7 @@ WeaponsList["antimatter rifle"] = {
 	weight : 10,
 	description : "Ammunition, reload (2 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "energy cell",
+	ammo : "energy_cell",
 	defaultExcluded : true
 };
 WeaponsList["laser rifle"] = {
@@ -6150,39 +6150,7 @@ WeaponsList["laser rifle"] = {
 	weight : 7,
 	description : "Ammunition, reload (30 shots), two-handed",
 	abilitytodamage : true,
-	ammo : "energy cell",
-	defaultExcluded : true
-};
-AmmoList["renaissance bullet"] = {
-	name : "Bullets, Renaissance",
-	source : [["D", 268]],
-	weight : 0.2,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, renaissance",
-	alternatives : [/^(?=.*bullet)(?=.*renaissance).*$/i],
-	defaultExcluded : true
-};
-AmmoList["modern bullet"] = {
-	name : "Bullets, Modern",
-	source : [["D", 268]],
-	weight : 0.1,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Bullets, modern",
-	alternatives : [/^(?=.*bullet)(?=.*modern).*$/i],
-	defaultExcluded : true
-};
-AmmoList["energy cell"] = {
-	name : "Energy Cell",
-	source : [["D", 268]],
-	weight : 0,
-	icon : "Bullets",
-	checks : [".Bullet"],
-	display : 50,
-	invName : "Energy Cell",
+	ammo : "energy_cell",
 	defaultExcluded : true
 };
 
@@ -21348,14 +21316,7 @@ WeaponsList["oversized longbow"] = {
 	description : "Ammunition, heavy, two-handed; Damage uses Str; Requires Medium size and Str 18",
 	abilitytodamage : false,
 	modifiers : ["", "Str"],
-	ammo : "oversized arrow",
-	defaultExcluded : true
-};
-AmmoList["oversized arrow"] = {
-	name : "Oversized Arrows",
-	source : [["WDH", 201]],
-	icon : "Arrows",
-	weight : 0.10,
+	ammo : "oversized_arrow",
 	defaultExcluded : true
 };
 
